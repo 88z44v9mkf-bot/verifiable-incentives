@@ -34,7 +34,7 @@ class MockBackend:
 
 class StripeBackend:
     """Minimal Stripe PaymentIntent client using the REST API."""
-    BASE = "https://api.stripe.com/v1"
+    BASE = os.environ.get("STRIPE_API_BASE", "https://api.stripe.com/v1")
 
     def __init__(self, secret_key: str, live: bool = False, confirm_live: bool = False,
                  payment_method: str = "pm_card_visa"):

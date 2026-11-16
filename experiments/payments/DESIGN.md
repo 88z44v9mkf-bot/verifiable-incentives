@@ -107,3 +107,12 @@ python3 experiments/payments/live_run.py --live --confirm-live --max-spend 200
 ```
 
 `live_run.py` is a thin wrapper that selects the backend and enforces the spend cap; it is intentionally not run in this repository.
+
+Provider options and account setup are documented in `STRIPE_SETUP.md` and
+`providers/README.md`. The Stripe integration is also tested end-to-end against a
+local Stripe-compatible mock:
+
+```bash
+python3 mock_stripe_server.py 12111 &
+STRIPE_API_BASE=http://127.0.0.1:12111/v1 python3 integration_test.py
+```
