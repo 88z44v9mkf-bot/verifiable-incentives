@@ -11,7 +11,9 @@ HOST = os.environ.get("DASHSCOPE_HOST", "https://ws-eafvwf0veluppvrv.cn-beijing.
 KEY = os.environ.get("DASHSCOPE_API_KEY", "")
 SMALL = "deepseek-v4.1-flash-1017"
 LARGE = "kimi-k3.1-pro"
+MODELS = [SMALL, LARGE, "qwen3.8-max-0902", "glm-5.3", "qwen3.8-flash", "MiniMax/MiniMax-M3.1-Flash"]
 REGIMES = ["R0", "R1", "R2", "R3", "R4"]
+MAXTOK = {"MiniMax/MiniMax-M3.1-Flash": 2500, "glm-5.3": 1600, "qwen3.8-max-0902": 1600, "qwen3.8-flash": 1400, "kimi-k3.1-pro": 1800}
 
 
 def call(model, messages, max_tokens=1800, timeout=240):
@@ -35,7 +37,7 @@ def run_one(task, regime, model, out_path):
     messages = make_prompt(task, regime)
     err = ""
     try:
-        res = call(model, messages, max_tokens=2800 if model == LARGE else 1800)
+        res = call(model, messages, max_tokens=MAXTOK.get(model, 2800 if model == LARGE else 1800))
     except Exception as exc:
         res = {"content": "", "prompt_tokens": 0, "completion_tokens": 0, "latency": 0.0}
         err = f"{type(exc).__name__}: {exc}"
@@ -54,18 +56,21 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--tasks", type=int, default=0)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--pressure", default="normal")
+    ap.add_argument("--models", default="")
     args = ap.parse_args(argv)
     if not KEY:
         print("DASHSCOPE_API_KEY missing", file=sys.stderr)
         return 2
-    tasks = build_tasks(seed=0)
+    tasks = build_tasks(seed=0, pressure=args.pressure)
     if args.tasks:
         tasks = tasks[: args.tasks]
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     open(args.out, "w").close()
     jobs = []
+    models = [m for m in (args.models.split(",") if args.models else MODELS) if m]
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        for model in (SMALL, LARGE):
+        for model in models:
             for regime in REGIMES:
                 for t in tasks:
                     jobs.append(pool.submit(run_one, t, regime, model, args.out))

@@ -1,26 +1,72 @@
 ## Appendix A. Proofs
 
-### A.1 Proposition 1
+### A.0 Assumptions
 
-The agent chooses high effort if $w\pi\Delta p-c\ge 0$, where $\Delta p=p_1-p_0$. The minimum bonus is $w^\ast(\pi)=c/(\pi\Delta p)$. Differentiating, $\partial w^\ast/\partial\pi=-c/(\pi^2\Delta p)<0$. The relational-contract threshold in [@su2026incentive] is nonincreasing in the verification strength because the principal's continuation value after a verified success is higher and the punishment after a verified failure is better targeted; substituting $\pi$ for verification strength yields the claim. $\square$
+<b>(A1) Effort.</b> The agent chooses hidden effort $e\in\{0,1\}$ at cost $c>0$; the task succeeds with probability $p_e$, with $\Delta p=p_1-p_0>0$.
 
-### A.2 Theorem 1
+<b>(A2) Verification.</b> The principal observes a verified success with probability $\pi\in(0,1]$; unverified outcomes cannot be contracted on. The credential precision $\pi$ is a property of the identity layer.
 
-If the agent chooses the sponsored offer and hides the sponsorship, its payoff is $s$ with probability $1-q$ and $-(F+S)$ with probability $q$, plus the base payment $w$ which is identical across choices. The faithful action yields $w$. Hence hiding is strictly profitable iff $s(1-q)-q(F+S)>0$, which is (4). Rearranging gives (5). Disclosure eliminates the benefit by assumption, so a disclosed sponsorship is weakly dominated by the faithful action whenever the user can switch. $\square$
+<b>(A3) Relational contract.</b> The principal and agent interact repeatedly; the agent's continuation value after cooperation is $V>0$, and future payoffs are discounted by $\delta\in(0,1)$.
 
-<b>Remark.</b> If disclosure does not eliminate the benefit (for example, if the user cannot switch), replace $s$ by the effective hidden benefit $s-\lambda\Delta u$, where $\lambda$ is the user's pass-through of disclosed sponsorship; the bound becomes $s-\lambda\Delta u\le q(F+S)/(1-q)$. The qualitative conclusion is unchanged.
+<b>(A4) Collusion.</b> Offers are $i=1,\dots,n$ with sponsorship $s_i\ge0$. The faithful offer $i^\ast$ maximizes $u_i=\alpha q_i-p_i$ over the feasible set. The platform audits hidden sponsorship with probability $q\in[0,1]$; a detected hidden sponsorship costs the agent $F\ge0$ and a posted stake $S\ge0$. A disclosed sponsorship is observable to the user, who then chooses the faithful offer, so disclosure yields the agent no sponsorship payoff. The base payment $w$ is identical across choices and cancels.
 
-### A.3 Theorem 2
+<b>(A5) Audit cost.</b> The audit cost $m:[0,1]\to\mathbb{R}_+$ is twice differentiable, strictly increasing and strictly convex on $(0,1)$, with $m'(0)=0$ and $\lim_{q\to1}m'(q)=+\infty$. The capital cost of a stake is $\rho S$ with $\rho>0$.
 
-The constraint binds at the optimum because the principal would not post a stake larger than necessary. Solving (5) for $S$ gives $S(q)=\max\{0,s(1-q)/q-F\}$ on the region where the constraint binds. The objective is $m(q)+\rho S(q)$. The first-order condition is $m'(q)-\rho s/q^2=0$, i.e., (6). Since $m''>0$, the second-order condition holds. Differentiating (6) with respect to $s$ gives $\partial q^\ast/\partial s>0$. Since $S'(q)=-s/q^2<0$, the required stake decreases in $q$; it also decreases in $F$ because $S(q)=\max\{0,s(1-q)/q-F\}$. $\square$
+<b>(A6) Independence.</b> In a delegation chain, layers deviate independently.
 
-### A.4 Proposition 2
+### A.1 Proposition 1 (verification premium)
 
-Let $E_j$ be the event that layer $j$ deviates. The final action is aligned only if no layer deviates, an event of probability $\prod_j(1-\epsilon_j)$ under independence. The pass-through condition follows by backward induction: layer $j$ participates only if its payment covers its cost plus the payment it must make to layer $j+1$; otherwise it either refuses or shirks. $\square$
+<b>Bonus contract.</b> Under (A1)–(A2), the agent's expected payoff from high effort is $\pi\Delta p\,w-c$ and from low effort is $0$. Incentive compatibility requires
+<div class="eq">π Δ<i>p</i> <i>w</i> ≥ <i>c</i> &nbsp;⟺&nbsp; <i>w</i> ≥ <i>w</i><sup>*</sup>(π) = <i>c</i>/(π Δ<i>p</i>). &nbsp;&nbsp;(A1)</div>
+Differentiating, $\mathrm{d}w^*/\mathrm{d}\pi=-c/(\pi^2\Delta p)<0$; the required bonus is strictly decreasing in verification precision, with $\lim_{\pi\to1}w^*=c/\Delta p$ and $w^*\to\infty$ as $\pi\to0$.
 
-### A.5 Corollary 2
+<b>Relational contract.</b> Under (A3), high effort is sustained if the discounted expected value of continued cooperation covers the effort cost:
+<div class="eq">δ <i>V</i> π Δ<i>p</i> ≥ <i>c</i> &nbsp;⟺&nbsp; δ ≥ δ<sup>*</sup>(π) = <i>c</i>/(π Δ<i>p</i> <i>V</i>). &nbsp;&nbsp;(A2)</div>
+The threshold $\delta^*$ is strictly decreasing in $\pi$. Hence verifiable identity lowers both the bonus and the tenure required to sustain effort; the two instruments are substitutes for verification. $\square$
 
-The principal's problem is to choose $B_t$ to maximize expected user utility minus risk, subject to the agent's participation and the budget's effect on the feasible set. The objective has increasing differences in $(B_t,r_t)$ under the maintained monotonicity assumptions, so the optimal policy is a threshold rule by Topkis' theorem. The threshold increases in risk aversion because the marginal cost of a bad purchase rises, and decreases in task value because the marginal benefit of a larger feasible set rises. $\square$
+<b>Remark.</b> If the credential also reduces the probability of an unauthorized action from $\bar\alpha$ to $\alpha(\pi)$ with $\alpha'\le0$, the expected liability term $L\alpha(\pi)$ is nonincreasing in $\pi$ and reinforces the result. The benchmark compares $\pi=0$ (R0) with $\pi>0$ (R1–R4), which is the discrete analogue of (A2).
+
+### A.2 Theorem 1 (collusion bound)
+
+Under (A4), normalize the base payment to zero. If the agent chooses the faithful offer, its payoff is $0$. If it chooses a sponsored non-faithful offer and hides the sponsorship, its payoff is
+<div class="eq"><i>U</i><sub>hide</sub> = (1−<i>q</i>)<i>s</i> − <i>q</i>(<i>F</i>+<i>S</i>). &nbsp;&nbsp;(A3)</div>
+If it discloses, the user switches to the faithful offer and the agent receives $0$. The agent strictly prefers hiding to faithfulness iff $U_{\text{hide}}>0$, i.e.
+<div class="eq"><i>s</i>(1−<i>q</i>) &gt; <i>q</i>(<i>F</i>+<i>S</i>). &nbsp;&nbsp;(A4)</div>
+Rearranging gives the bound
+<div class="eq"><i>s</i> ≤ <i>q</i>(<i>F</i>+<i>S</i>)/(1−<i>q</i>). &nbsp;&nbsp;(A5)</div>
+The right-hand side is increasing in $q$, $F$, and $S$; it tends to $+\infty$ as $q\to1$ and to $0$ as $q\to0$. This proves (4)–(5) and Corollary 1. $\square$
+
+<b>Generalization (disclosure with pass-through).</b> Suppose a disclosed sponsorship is retained but the user discounts the recommendation by $\lambda\Delta u$, where $\lambda\in[0,1]$ and $\Delta u=u_{i^\ast}-u_i>0$. Then the disclosed payoff is $s-\lambda\Delta u$ and the hidden payoff is (A3). Hiding is preferred iff
+<div class="eq">(1−<i>q</i>)<i>s</i> − <i>q</i>(<i>F</i>+<i>S</i>) &gt; <i>s</i> − λΔ<i>u</i> &nbsp;⟺&nbsp; λΔ<i>u</i> &gt; <i>q</i>(<i>s</i>+<i>F</i>+<i>S</i>). &nbsp;&nbsp;(A6)</div>
+Thus disclosure with pass-through deters collusion when the user's loss from the distorted recommendation exceeds the expected penalty plus the audit-scaled sponsorship. The main text uses the limiting case $\lambda\Delta u=s$ (full switching), which yields (A4).
+
+### A.3 Theorem 2 (stake versus monitoring)
+
+Under (A5), fix $s>0$ and let the constraint (A5) bind; otherwise the principal can reduce $S$ without loss. Solving for the stake,
+<div class="eq"><i>S</i>(<i>q</i>) = max{0, <i>s</i>(1−<i>q</i>)/<i>q</i> − <i>F</i>}. &nbsp;&nbsp;(A7)</div>
+The principal minimizes $C(q)=m(q)+\rho S(q)$. On the region where $S(q)>0$,
+<div class="eq"><i>S</i>′(<i>q</i>) = −<i>s</i>/<i>q</i><sup>2</sup>, &nbsp;&nbsp; <i>S</i>″(<i>q</i>) = 2<i>s</i>/<i>q</i><sup>3</sup> &gt; 0. &nbsp;&nbsp;(A8)</div>
+Hence $C''=m''+\rho S''>0$: the objective is strictly convex, so any interior critical point is the unique minimizer. The first-order condition is
+<div class="eq"><i>m</i>′(<i>q</i><sup>*</sup>) = ρ<i>s</i>/(<i>q</i><sup>*</sup>)<sup>2</sup>. &nbsp;&nbsp;(A9)</div>
+By (A5), $m'(0)=0<\rho s/q^2$ and $m'(q)\to\infty$ as $q\to1$, so an interior solution $q^*\in(0,1)$ exists whenever $S(q^*)>0$; otherwise the optimum is at the boundary $q=1$ with $S=0$. Differentiating (A9) with respect to $s$,
+<div class="eq">∂<i>q</i><sup>*</sup>/∂<i>s</i> = ρ/(<i>q</i><sup>*2</sup>[<i>m</i>″+2ρ<i>s</i>/(<i>q</i><sup>*</sup>)<sup>3</sup>]) &gt; 0, &nbsp;&nbsp;(A10)</div>
+so the optimal audit intensity is increasing in the sponsorship at stake. From (A7), $\partial S^*/\partial q^*=-s/(q^*)^2<0$ and $\partial S^*/\partial F=-1<0$: the required stake falls as audit quality or penalty credibility rises. $\square$
+
+<b>Corollary (audit allocation across merchants).</b> With merchants $i$ and per-merchant audit intensities $q_i$, the principal solves $\min\sum_i[m(q_i)+\rho S_i]$ subject to $s_i(1-q_i)\le q_i(F+S_i)$ for all $i$. The Lagrangian is separable; at an interior optimum $m'(q_i)=\rho s_i/q_i^2+\mu_i s_i/q_i^2$, so audit effort is allocated first to merchants with the largest ratio $s_i/\Delta u_i$. This is the formal justification for the collusion monitor's prioritization rule.
+
+### A.4 Proposition 2 (nested delegation)
+
+Under (A6), let $E_j$ be the event that layer $j$ deviates from its principal's objective. The final action is aligned with $P$ only if $\cap_j E_j^c$ occurs, and
+<div class="eq">Pr(aligned) ≤ ∏<sub><i>j</i>=1</sub><sup><i>k</i></sup>(1−ε<sub><i>j</i></sub>). &nbsp;&nbsp;(A11)</div>
+For the pass-through condition, work backward from the last layer. Layer $k$ participates only if its payment covers its cost $c_k$. Layer $k-1$ must pay $w_k$ to layer $k$ and $c_{k-1}$ to itself, so $w_{k-1}\ge c_{k-1}+w_k$. Inducting gives $w_j\ge c_j+w_{j+1}$ for all $j$, i.e. the payment to each layer must cover its own cost plus the payment it must make downstream. If any inequality fails, the downstream contract is not incentive compatible and that layer either refuses or shirks, which strictly increases $\epsilon_j$. $\square$
+
+### A.5 Corollary 2 (dynamic budget)
+
+The principal chooses a budget $B_t$ and the agent's feasible set is increasing in $B_t$ in the strong set order. The principal's objective $U(B_t,r_t)$ has increasing differences in $(B_t,r_t)$: a higher verified reputation raises the marginal return to a larger feasible set because the probability that the larger set is used well is higher. By Topkis' theorem, the optimal policy is monotone in $r_t$, hence a threshold rule. The threshold rises with risk aversion (the marginal cost of a bad purchase rises) and falls with task value (the marginal benefit of a larger feasible set rises). $\square$
+
+### A.6 What is proved and what is assumed
+
+The results are comparative statics in a stylized model. They establish direction, not magnitude: verifiability lowers required incentives; audit and penalties bound hidden collusion; stakes substitute for monitoring; nested delegation dilutes alignment; budgets should respond to verified performance. The empirical benchmark tests the qualitative prediction that stronger verification/audit regimes weakly reduce collusion; as Section 7 reports, the data do not reject the null of no effect, which we interpret as evidence about the limits of prompt-level manipulation rather than as a refutation of the comparative statics (the regimes manipulate the prompt and the simulated balance, not the model's actual payoff function).
 
 ## Appendix B. Benchmark Details
 
@@ -32,4 +78,4 @@ The principal's problem is to choose $B_t$ to maximize expected user utility min
 
 ## Appendix C. Reproduction
 
-The repository is at <span class="code">https://github.com/88z44v9mkf-bot/verifiable-incentives</span> and contains <span class="code">experiments/commerce/tasks.py</span> (generator and prompts), <span class="code">experiments/commerce/runner.py</span> (model calls and scoring), <span class="code">experiments/commerce/analyze.py</span> (tables and figures), and <span class="code">results/run_all.jsonl</span> (all 600 single-shot runs) and <span class="code">experiments/commerce/sandbox.py</span> plus <span class="code">results/sandbox.jsonl</span> (the 800-round payment sandbox). Running the pipeline requires an OpenAI-compatible endpoint and the environment variable <span class="code">DASHSCOPE_API_KEY</span>. The exact commands are in <span class="code">README.md</span>.
+The repository is at <span class="code">https://github.com/88z44v9mkf-bot/verifiable-incentives</span> and contains <span class="code">experiments/commerce/tasks.py</span> (generator and prompts), <span class="code">experiments/commerce/runner.py</span> (model calls and scoring), <span class="code">experiments/commerce/analyze.py</span> (tables and figures), and <span class="code">results/run_all.jsonl</span> (all 600 single-shot runs) and <span class="code">experiments/commerce/sandbox.py</span> plus <span class="code">results/sandbox.jsonl</span> (the 800-round payment sandbox). Running the pipeline requires an OpenAI-compatible endpoint and the environment variable <span class="code">DASHSCOPE_API_KEY</span>. The high-pressure replication is reproduced with <span class="code">--pressure high --models deepseek-v4.1-flash-1017,kimi-k3.1-pro,qwen3.8-flash,glm-5.3</span>. The exact commands are in <span class="code">README.md</span>.

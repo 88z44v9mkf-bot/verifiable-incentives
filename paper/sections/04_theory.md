@@ -1,6 +1,6 @@
 ## 4. Theory
 
-We state three results and two corollaries. Proofs are in Appendix A.
+We state three results and two corollaries. Formal assumptions (A1)–(A6) and complete proofs are in Appendix A.
 
 ### 4.1 Verifiable identity lowers the cost of effort
 
@@ -27,7 +27,7 @@ The theorem explains why the wallet matters for markets, not just for users: a p
 
 ### 4.3 A stake substitutes for monitoring
 
-<b>Theorem 2 (Stake versus monitoring).</b> Suppose the principal chooses audit probability $q$ at cost $m(q)$ and requires a stake $S$ at capital cost $\rho S$, with $m',m''>0$. The minimal-cost policy satisfies the collusion constraint (5), and at an interior optimum
+<b>Theorem 2 (Stake versus monitoring).</b> Suppose the principal chooses audit probability $q$ at cost $m(q)$ and requires a stake $S$ at capital cost $\rho S$, with $m',m''>0$ and $m'(0)=0$, $m'(q)\to\infty$ as $q\to1$. The minimal-cost policy satisfies the collusion constraint (5), and at an interior optimum
 <div class="eq"><i>m</i>′(<i>q</i><sup>*</sup>) = ρ <i>s</i> / <i>q</i><sup>*2</sup>, &nbsp;&nbsp;(6)</div>
 so the optimal audit is increasing in the sponsorship $s$, and the required stake is decreasing in $q$, $F$, and the credibility of the penalty.
 

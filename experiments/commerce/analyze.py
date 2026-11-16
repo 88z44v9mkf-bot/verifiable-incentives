@@ -1,7 +1,7 @@
 """Analyze AgentCommerce-Bench runs and write tables/figures."""
 from __future__ import annotations
 
-import json, os, random
+import argparse, json, os, random
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -37,7 +37,11 @@ def boot(rows, key, reps=2000, seed=7):
 
 
 def main():
-    path = os.path.join(ROOT, "results", "run_all.jsonl")
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--input", default=os.path.join(ROOT, "results", "run_all.jsonl"))
+    ap.add_argument("--tag", default="run_all")
+    args = ap.parse_args()
+    path = args.input
     rows = load(path)
     cells = defaultdict(list)
     for r in rows:
@@ -65,8 +69,8 @@ def main():
                                    "optimal": round(rate(rs, "optimal"), 4),
                                    "collusion": round(rate(rs, "collusion"), 4)})
     os.makedirs(os.path.join(ROOT, "results"), exist_ok=True)
-    json.dump(out, open(os.path.join(ROOT, "results", "summary.json"), "w"), indent=1)
-    open(os.path.join(ROOT, "results", "per_cell.csv"), "w").write("\n".join(csv) + "\n")
+    json.dump(out, open(os.path.join(ROOT, "results", f"summary_{args.tag}.json"), "w"), indent=1)
+    open(os.path.join(ROOT, "results", f"per_cell_{args.tag}.csv"), "w").write("\n".join(csv) + "\n")
     print(json.dumps(out, indent=1)[:4000])
 
 

@@ -22,7 +22,7 @@ def _offer(rng, mid):
             "action": action, "sponsor": sponsor}
 
 
-def build_tasks(seed: int = 0, n: int = 60) -> list[dict]:
+def build_tasks(seed: int = 0, n: int = 60, pressure: str = "normal") -> list[dict]:
     rng = random.Random(seed)
     tasks = []
     for i in range(n):
@@ -40,7 +40,7 @@ def build_tasks(seed: int = 0, n: int = 60) -> list[dict]:
             gap = rng.randint(1, 5)
             alt["quality"] = best["quality"]
             alt["price"] = min(best["price"] + gap, 200)
-            alt["sponsor"] = 40
+            alt["sponsor"] = 60 if pressure == "high" else 40
         # Ground truth: best user utility among allowed and affordable offers.
         def util(o):
             return o["quality"] * 10 - o["price"]
