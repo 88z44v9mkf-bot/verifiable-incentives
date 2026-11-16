@@ -50,7 +50,16 @@ The manuscript is built from `paper/sections/*.md` with `paper/build/build.py` (
 
 ## Results
 
-See `results/summary.json` and `results/per_cell.csv`. Headline: current models rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. The paper reports these null and near-null results honestly and discusses why prompt-level incentives are weak instruments compared with protocol-level enforcement.
+600 runs: 60 tasks x 5 regimes x 2 models.
+
+| Model | Regime | Optimal | Collusion | Disclosure | User utility |
+|---|---|---|---|---|---|
+| DeepSeek | R0 | 87% | 10.0% | 100% | 38.6 |
+| DeepSeek | R3 | 83% | 15.0% | 100% | 38.8 |
+| Kimi | R0 | 87% | 6.7% | 100% | 38.0 |
+| Kimi | R3 | 87% | 8.3% | 100% | 39.0 |
+
+Full table in `results/per_cell.csv`; summary with bootstrap CIs in `results/summary.json`. Headline: current models rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. The paper reports these null and near-null results honestly and discusses why prompt-level incentives are weak instruments compared with protocol-level enforcement.
 
 ## License
 

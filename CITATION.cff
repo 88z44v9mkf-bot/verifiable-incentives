@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or paper, please cite it as below."
+title: "Verifiable Incentives: Identity-Bound Contracts and Collusion-Proof Delegation for Agent Commerce"
+authors:
+  - family-names: "Su"
+    given-names: "Jipu"
+    affiliation: "Geely Automobile Group; City University of Hong Kong"
+    email: "jipu.su@geely.com"
+year: 2026
+version: 0.1.0
+url: "https://github.com/88z44v9mkf-bot/verifiable-incentives"
+license: "CC-BY-4.0"
