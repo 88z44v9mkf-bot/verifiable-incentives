@@ -25,4 +25,6 @@ The per-task loop is:
  8  settle(wallet, choice); record(registry, choice)
  9  update_budget_and_stake(agent, verified_history)</pre>
 
+[[FIG:figures/fig_architecture.svg|Figure 1. PAIR-Commerce. The credential gates the action, the wallet gates the payment, and the collusion monitor gates the continuation value. Dashed arrows are the audit and feedback paths that make the mechanism enforceable rather than decorative.]]
+
 The design principle is the same as in the earlier framework: the mechanism must be <i>consumed</i> by the agent's decision problem. A credential that is displayed but not enforced, or a sponsorship field that is printed but never audited, is decoration. PAIR-Commerce therefore binds each lever to a runtime action: the credential gates the action, the wallet gates the payment, and the monitor gates the continuation value.
