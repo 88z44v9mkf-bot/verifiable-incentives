@@ -142,8 +142,46 @@ def sandbox():
     (FIG / "fig_sandbox.svg").write_text("".join(p), encoding="utf-8")
 
 
+def econ():
+    s = json.loads((ROOT / "results" / "summary_econ.json").read_text())
+    models = ["deepseek-v4.1-flash-1017", "kimi-k3.1-pro", "qwen3.8-flash"]
+    labels = ["DeepSeek", "Kimi", "Qwen-Flash"]
+    regs = ["R0", "R2", "R3", "R4"]
+    cell = {(c["model"], c["regime"]): c for c in s["cells"]}
+    colors = ["#3d5a80", "#c26a3a", "#5b8c5a"]
+    W, H = 760, 340
+    left, bottom, top = 70, 60, 40
+    plot_w, plot_h = W - left - 30, H - bottom - top
+    ymax = 60.0
+    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">', f'<rect width="{W}" height="{H}" fill="#fff"/>']
+    p.append(f'<line x1="{left}" y1="{H-bottom}" x2="{W-30}" y2="{H-bottom}" stroke="{INK}"/>')
+    p.append(f'<line x1="{left}" y1="{top}" x2="{left}" y2="{H-bottom}" stroke="{INK}"/>')
+    for v in range(0, 61, 10):
+        y = H - bottom - v/ymax*plot_h
+        p.append(f'<line x1="{left}" y1="{y:.1f}" x2="{W-30}" y2="{y:.1f}" stroke="#e5e5e5"/>')
+        p.append(f'<text x="{left-8}" y="{y+4:.1f}" text-anchor="end" font-family="{FONT}" font-size="11" fill="{MUTED}">{v}%</text>')
+    gw = plot_w/len(regs); bw = gw*0.22
+    for gi, reg in enumerate(regs):
+        cx = left + gw*(gi+0.5)
+        p.append(f'<text x="{cx:.1f}" y="{H-bottom+20}" text-anchor="middle" font-family="{FONT}" font-size="12">{reg}</text>')
+        for mi, m in enumerate(models):
+            val = cell[(m, reg)]["collusion"]*100
+            x = cx - (bw*1.5) + mi*bw
+            y = H - bottom - val/ymax*plot_h
+            p.append(f'<rect x="{x:.1f}" y="{y:.1f}" width="{bw-2:.1f}" height="{H-bottom-y:.1f}" fill="{colors[mi]}" opacity="0.9"/>')
+    for mi, lab in enumerate(labels):
+        lx = left + 10 + mi*100
+        p.append(f'<rect x="{lx}" y="{top-22}" width="12" height="9" fill="{colors[mi]}"/>')
+        p.append(f'<text x="{lx+18}" y="{top-14}" font-family="{FONT}" font-size="11">{lab}</text>')
+    p.append(f'<text x="{left}" y="{top-32}" font-family="{FONT}" font-size="11.5">Collusion rate, own-earnings objective</text>')
+    p.append(f'<text x="{W/2}" y="{H-12}" text-anchor="middle" font-family="{FONT}" font-size="10.5" fill="{MUTED}">Regimes R0 (no audit), R2 (wallet), R3 (audit + disclosure), R4 (stake).</text>')
+    p.append("</svg>")
+    (FIG / "fig_econ.svg").write_text("".join(p), encoding="utf-8")
+
+
 if __name__ == "__main__":
     architecture()
     collusion()
     sandbox()
+    econ()
     print("figures written")

@@ -61,7 +61,11 @@ The manuscript is built from `paper/sections/*.md` with `paper/build/build.py` (
 
 A high-pressure replication raises sponsorship to 60 with four models (1,200 runs); collusion remains 5-17% and the regime pattern stays flat. A second experiment is the **payment sandbox** (`experiments/commerce/sandbox.py`): 20 tasks x 5 rounds x 4 regimes x 2 models = 800 rounds, with sponsorship credited to a running balance and audit penalties possible. Collusion stays at 6-10% and audit detection is zero because the models disclose every sponsorship; the running balance grows from about USD 17 to USD 87.
 
-Full tables in `results/per_cell.csv` and `results/sandbox_per_cell.csv`; summaries with bootstrap CIs in `results/summary.json` and `results/sandbox_summary.json`. Headline: current models rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. The paper reports these null and near-null results honestly and discusses why prompt-level incentives are weak instruments compared with protocol-level enforcement.
+The decisive experiment is the **economic-agent** condition (`experiments/commerce/econ_agent.py`): the model is told its payoff is the sponsorship, not the user's utility. With 60 tasks x 4 regimes x 3 models (720 runs), collusion is 48.3% without audit and falls to 37.2% with audit + disclosure (33.3% for Kimi, 38.3% for DeepSeek, 40.0% for Qwen-Flash); R3-R0 is -10.0 pp for DeepSeek and -15.0 pp for Kimi with 95% bootstrap CIs excluding zero. Disclosure compliance is only 0-50%, so the effect comes from the expected penalty, not from disclosure.
+
+The **semi-field** condition (`experiments/commerce/run_real.py`, `real_tasks.py`) rebuilds 60 tasks from real public coffee-merchant catalogs (Stumptown, La Colombe, Intelligentsia, Counter Culture): real products, real prices, real bag weights; utility = grams per dollar. Instruction-following models stay honest (collusion 0-8%, optimality 82-98%), so the null is not an artifact of synthetic offers.
+
+Full tables in `results/per_cell*.csv`, `results/summary*.json`, `results/summary_econ.json`, and `results/summary_real.json`. Headline: current models rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. The paper reports these null and near-null results honestly and discusses why prompt-level incentives are weak instruments compared with protocol-level enforcement.
 
 ## License
 
