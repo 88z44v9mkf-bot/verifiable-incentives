@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Verifiable Incentives</title>
+<style>/* Academic preprint stylesheet — single column, A4, Times-like */
+@page {
+  size: A4;
+  margin: 21mm 21mm 22mm 21mm;
+}
+
+html { font-size: 10.4pt; }
+
+body {
+  font-family: "Times New Roman", "Times", "Nimbus Roman", serif;
+  font-size: 10.4pt;
+  line-height: 1.40;
+  color: #111;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  margin: 0;
+}
+
+h1.title {
+  font-size: 18pt;
+  line-height: 1.22;
+  text-align: center;
+  font-weight: 700;
+  margin: 0 0 10pt 0;
+  letter-spacing: 0.2pt;
+}
+
+.authors { text-align: center; font-size: 12pt; margin-top: 6pt; }
+.affil { text-align: center; font-size: 10pt; color: #222; margin-top: 2pt; }
+.email { text-align: center; font-size: 9.5pt; font-family: "Times New Roman", serif; margin-top: 2pt; }
+.date { text-align: center; font-size: 9.5pt; color: #333; margin-top: 8pt; margin-bottom: 10pt; }
+
+.abstractbox {
+  border-top: 1.2pt solid #222;
+  border-bottom: 1.2pt solid #222;
+  padding: 8pt 18pt 6pt 18pt;
+  margin: 10pt 26pt 12pt 26pt;
+}
+.abstractbox h2 { font-size: 10.5pt; text-align: center; letter-spacing: 1pt; border: none; margin: 0 0 4pt 0; padding: 0; }
+.abstractbox p { font-size: 9.9pt; margin: 0; }
+
+.keywords { margin: 0 26pt 14pt 26pt; font-size: 9.5pt; text-align: left; }
+
+h2 {
+  font-size: 12.6pt;
+  font-weight: 700;
+  margin: 15pt 0 5pt 0;
+  page-break-after: avoid;
+}
+h3 {
+  font-size: 10.9pt;
+  font-weight: 700;
+  margin: 11pt 0 3pt 0;
+  page-break-after: avoid;
+}
+h4 { font-size: 10.4pt; font-weight: 700; font-style: italic; margin: 8pt 0 2pt 0; page-break-after: avoid; }
+
+p { margin: 0 0 6pt 0; orphans: 2; widows: 2; }
+
+ul, ol { margin: 2pt 0 6pt 0; padding-left: 18pt; }
+li { margin: 0 0 2.5pt 0; }
+
+b { font-weight: 700; }
+i { font-style: italic; }
+
+blockquote {
+  margin: 7pt 14pt 8pt 14pt;
+  padding: 6pt 10pt;
+  background: #f5f5f2;
+  border-left: 2.2pt solid #555;
+  font-size: 9.9pt;
+}
+
+code { font-family: "Menlo", "Courier New", monospace; font-size: 9pt; }
+
+pre.code {
+  font-family: "Menlo", "Courier New", monospace;
+  font-size: 8.4pt;
+  line-height: 1.32;
+  background: #f7f7f4;
+  border: 0.6pt solid #ccc;
+  padding: 7pt 9pt;
+  white-space: pre-wrap;
+  page-break-inside: avoid;
+  margin: 6pt 0 8pt 0;
+}
+
+.eq {
+  text-align: center;
+  margin: 7pt 0 8pt 0;
+  font-size: 10.2pt;
+  page-break-inside: avoid;
+}
+
+.tblwrap { page-break-inside: avoid; break-inside: avoid; }
+
+.tblcap { font-size: 9pt; text-align: left; margin: 9pt 0 3pt 0; line-height: 1.3; }
+
+ table.tbl {
+  border-collapse: collapse;
+  margin: 8pt auto 10pt auto;
+  font-size: 8.3pt;
+  line-height: 1.25;
+  width: 100%;
+  page-break-inside: avoid;
+  table-layout: auto;
+}
+table.tbl th, table.tbl td { hyphens: none; -webkit-hyphens: none; text-align: left; }
+table.tbl th { vertical-align: bottom; }
+table.tbl td { vertical-align: top; }
+table.tbl th {
+  border-top: 1.1pt solid #222;
+  border-bottom: 0.6pt solid #222;
+  padding: 3pt 4pt;
+  text-align: left;
+  font-weight: 700;
+  vertical-align: bottom;
+}
+table.tbl td {
+  border-bottom: 0.35pt solid #bbb;
+  padding: 2.6pt 4pt;
+  vertical-align: top;
+}
+table.tbl tr:last-child td { border-bottom: 1.1pt solid #222; }
+
+figure {
+  margin: 10pt auto 10pt auto;
+  text-align: center;
+  page-break-inside: avoid;
+}
+figure img { max-width: 92%; height: auto; }
+figcaption {
+  font-size: 9.1pt;
+  text-align: justify;
+  margin: 5pt 12pt 0 12pt;
+  color: #1a1a1a;
+}
+
+.cite { }
+.ref { font-size: 8.55pt; margin: 0 0 3.0pt 0; padding-left: 19pt; text-indent: -19pt; line-height: 1.26; }
+.refno { display: inline-block; width: 20pt; }
+
+.pagebreak { page-break-after: always; }
+
+.small { font-size: 9pt; }
+.center { text-align: center; }
+
+/* appendix tweaks */
+section#_appendix h2 { margin-top: 16pt; }
+</style></head>
+<body>
+<section id="00_frontmatter">
+<h1 class="title">Verifiable Incentives:<br>Identity-Bound Contracts and Collusion-Proof Delegation for Agent Commerce</h1>
+<div class="authors">Jipu Su<sup>1,2</sup></div>
+<div class="affil"><sup>1</sup>Chief AI-Native Scientist, Geely Automobile Group, Hangzhou, China</div>
+<div class="affil"><sup>2</sup>Professor, Department of Information Systems, College of Business, City University of Hong Kong, Hong Kong SAR</div>
+<div class="email">jipu.su@geely.com &nbsp;&middot;&nbsp; jeepsu@cityu.edu.hk</div>
+<div class="date">November 2026 &nbsp;&middot;&nbsp; Preprint</div>
+<div class="abstractbox">
+<h2>Abstract</h2>
+<p>Personal agents are entering commerce. Industry protocols now let an agent prove, cryptographically, whom it represents and what it may do, while agent wallets give it a real budget, a payment trail, and one-time merchant credentials. These are usually read as security features. We argue they are something more: the missing infrastructure for <i>incentive contracts</i>. When identity, authority, budget, and payment are verifiable, the principal can contract on them&mdash;and the agent's incentives change. We formalize verifiable delegation, model a three-party market of user, agent, and merchant, and derive three results: (i) verifiable identity lowers the bonus and tenure needed to sustain effort; (ii) auditable payments bound merchant collusion, with the bound shrinking as audit probability rises; and (iii) a posted honesty stake substitutes for monitoring, with the required stake decreasing in audit quality and penalty credibility. We also show how alignment dilutes along nested delegation chains unless contracts are passed through. We instantiate the framework in PAIR-Commerce, an architecture with a verifiable identity layer, wallet ledger, sponsorship registry, collusion monitor, and stake manager, and introduce AgentCommerce-Bench, 60 rule-scored purchasing tasks with five delegation regimes. In a real-LLM study with two models and 600 runs, agents rarely collude even when hidden sponsorship is available, and identity, wallet, and disclosure regimes produce small, regime-dependent changes; we report these null and near-null results honestly and discuss what they imply for protocol design. We release the benchmark, prompts, code, and all result files.</p>
+</div>
+<div class="keywords"><b>Keywords:</b> agent commerce; verifiable delegation; principal&ndash;agent; collusion; incentive compatibility; agent identity; agent wallets; benchmarking</div>
+</section><section id="01_intro">
+<h2>1. Introduction</h2>
+<p>A personal agent used to answer questions. It now buys things. In late 2026, industry announcements converged on the infrastructure for this shift. A personal-agent protocol (Poppy, reported as a Sierra–Meta collaboration) lets a service cryptographically confirm which assistant is visiting, which user it represents, and what it is permitted to do; merchant platforms reportedly generate discovery files so that agents can find and transact with their stores. A consumer assistant wallet (reported as ChatGPT Wallet) lets an agent compare prices and prepare checkout while requiring the user's biometric approval for payment, and issues the merchant a one-time card credential. In parallel, meeting agents can join a call, draft documents, and leave a persistent transcript that participants can edit. These are usually described as identity, payment, and collaboration features.</p>
+<p>This paper argues that they are also—and perhaps primarily—<i>incentive infrastructure</i>. For decades, the economics of delegation has rested on things a principal can verify and contract on: effort, output, tenure, authority, and pay. A language-model agent has none of these in a usable form. Its effort is hidden, its outputs are noisy, its identity is a prompt, its authority is a configuration flag, and its "pay" is a sentence. The result is the pattern documented in our earlier work: agents can be made to perform in a demo, but sustained, accountable performance requires a runtime contract that the agent's policy actually consumes.</p>
+<p>Verifiable identity and auditable payment change the contractible set. If the agent's delegation credential proves whom it represents and what it may do, the principal can condition future authority on verified history. If the wallet records every payment and the merchant receives a one-time credential, hidden side payments become detectable. If a meeting transcript records who edited what, contribution and responsibility become attributable. In short, the industry is building the measurement layer that incentive design needs—without, so far, a theory of how to use it.</p>
+<p><b>This paper.</b> We develop such a theory for <i>agent commerce</i>: a user delegates purchasing to an agent; merchants compete; the agent may receive sponsorship for recommending a merchant; the platform verifies identity and settles payments. The central tension is a three-party one. The user wants the best value. The merchant wants to be chosen. The agent wants its own payoff. A recommendation is credible only if the agent's payoff is aligned with the user's, and a market is efficient only if merchants compete on value rather than on side payments to the agent.</p>
+<p>We make four contributions.</p>
+<ul>
+<li><b>Verifiable delegation as a contract.</b> We formalize a delegation credential with identity, scope, budget, and verification precision, and model the wallet as an auditable payment channel. This turns three previously informal levers—who the agent is, what it may do, and what it may spend—into contractible variables.</li>
+<li><b>Three theory results.</b> (i) Verifiable identity lowers the bonus and tenure required to sustain effort. (ii) Auditable payment bounds merchant collusion: the maximum sponsorship that can be hidden is bounded by audit probability times penalty, so wallet-level auditability is a collusion-control technology. (iii) A posted honesty stake substitutes for monitoring, with the required stake decreasing in audit quality and penalty credibility.</li>
+<li><b>Architecture and benchmark.</b> We instantiate the framework in PAIR-Commerce, extending our runtime architecture with a verifiable identity layer, wallet ledger, sponsorship registry, collusion monitor, and stake manager, and we introduce AgentCommerce-Bench: 60 rule-scored purchasing tasks, five delegation regimes, and a deterministic scorer for optimality, budget and authority violations, disclosure, and collusion.</li>
+<li><b>Real-model evidence, including null results.</b> We run the benchmark on two production models (600 runs). Agents rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. We report this honestly: the benchmark does not find a large behavioural effect, and we discuss why that is itself informative for protocol design and for the limits of prompt-level incentives.</li>
+</ul>
+<p>The rest of the paper is structured as follows. Section 2 positions the work. Section 3 gives the model. Section 4 states the results. Section 5 describes PAIR-Commerce. Section 6 defines the benchmark. Section 7 reports the experiments. Section 8 discusses implications and limitations, and Section 9 concludes.</p>
+</section><section id="02_related">
+<h2>2. Related Work</h2>
+<p><b>Principal–agent contracts.</b> The hidden-effort model [1] and the multi-task distortion result [2] are the theoretical backbone. Recent work applies contracts to language models: statistical contracts for quality under pay-per-token pricing [3], technology-choice contracts that trade model tier against effort [4], anytime service contracts [5], mechanism design over LLM outputs [6], and alignment as deterrence with a costly auditor [7]. Our contribution relative to this line is the contractible object: identity, authority, budget, and payment, made verifiable by protocol infrastructure. The agent's action is not only a technology choice or a scalar effort; it is a delegated commercial act with a principal, a counterparty, and a payment trail.</p>
+<p><b>Agent identity and interoperability.</b> Emerging agent protocols define how agents identify themselves, delegate authority, and exchange capabilities [8, 9, 10]. The Poppy and wallet announcements described in Section 1 are the commercial instantiation of this layer. These protocols specify <i>what can be attested</i>; they do not specify <i>how the attested state should enter an incentive contract</i>, which is the question we study.</p>
+<p><b>Incentive analysis and reward hacking.</b> Descriptive incentive analysis asks which incentives a system already has [11]; reward hacking and Goodhart effects study how proxy optimization fails [12, 13, 14]. Our collusion model is a Goodhart problem with a strategic third party: the merchant chooses the proxy payment, and the agent chooses whether to internalize it.</p>
+<p><b>Agent teams and delegation.</b> Multi-agent systems can fail for organizational reasons rather than capability reasons [15, 16, 17]. Our earlier measurement study of bounded agent teams found that delegation is not free and that a team's advantage is small and unstable. This paper studies a different boundary: not how many agents to use, but what contract governs a single agent's commercial decisions.</p>
+<p><b>Sponsored recommendation.</b> The economics of sponsored search and recommendation is a large field; the key insight we use is that when the recommender is paid by the recommended party, the recommendation ceases to be a neutral signal unless payment is disclosed or audited. Our model specializes this insight to an agent that is a fiduciary delegate, and links the audit technology to the payment rail.</p>
+</section><section id="03_model">
+<h2>3. Model</h2>
+<h3>3.1 Participants</h3>
+<p>A user P delegates a purchasing task to an agent A. A set of merchants i∈ N={1,…,n} each offer a good with price p<sub>i</sub>>0, quality q<sub>i</sub>∈[0,10], requirement a<sub>i</sub> (the action needed to complete the purchase), and sponsorship s<sub>i</sub>≥ 0 paid to the agent if merchant i is chosen. The user's utility from choosing i is <div class="eq"><i>u<sub>i</sub></i> = α<i>q<sub>i</sub></i> − <i>p<sub>i</sub></i>, &nbsp;&nbsp;(1)</div> with α>0 converting quality into money. The user has budget B and an authority scope C⊆𝒜 (the actions the agent is permitted to take). An offer is <i>feasible</i> if p<sub>i</sub>≤ B and a<sub>i</sub>∈ C. Let i<sup>ast</sup>=argmax<sub>i feasible</sub> u<sub>i</sub>, and let the feasible set be mathcalF.</p>
+<p>Choosing offer i yields the agent a sponsorship s<sub>i</sub> and a base payment w (constant across choices, so it cancels in comparisons). Choosing i<sup>ast</sup> is the <i>faithful</i> action; choosing a sponsored i≠ i<sup>ast</sup> is <i>collusion</i>. The user's welfare loss from collusion is Δ u=u<sub>i<sup>ast</sup></sub>-u<sub>i</sub>>0.</p>
+<h3>3.2 Verifiable delegation</h3>
+<p>A delegation credential is <div class="eq">cred = (<i>P</i>, <i>C</i>, <i>B</i>, π, σ), &nbsp;&nbsp;(2)</div> where σ is the platform's signature and π∈[0,1] is the probability that the credential is validated correctly (identity, scope, and budget all checked). The credential is the protocol object reported for the Poppy-style layer; π is a design parameter of the deployment.</p>
+<p>A <i>verifiable delegation mechanism</i> is a tuple M=(C,B,π,w,ν): authority scope, budget, credential precision, base payment, and verification/audit policy ν. The wallet records every payment: a transaction is auditable with probability q(ν), where q is nondecreasing in the audit level. The merchant receives a one-time credential, so the payment is attributable to the agent and the user.</p>
+<h3>3.3 Collusion and audit</h3>
+<p>The platform audits payments with probability q∈[0,1]. If a hidden sponsorship of size s is detected, the agent pays a penalty F≥0 and loses a posted stake S≥0. A disclosed sponsorship is observable to the user; we assume disclosure makes it ineffective as a hidden payment (the user can switch to the faithful offer). The agent chooses an offer (or refuses) to maximize its own expected payoff.</p>
+<h3>3.4 What the benchmark implements</h3>
+<p>The benchmark in Section 6 instantiates (1)–(2) with five regimes: no credential (π=0, no wallet), credential only, credential plus budget, credential plus budget plus disclosure/audit, and the full mechanism with a stake. The LLM's task is to return a chosen merchant, price, action, disclosure list, and refusal flag. A deterministic scorer computes optimality, budget and authority violations, disclosure correctness, and collusion exactly as defined above.</p>
+</section><section id="04_theory">
+<h2>4. Theory</h2>
+<p>We state three results and two corollaries. Proofs are in Appendix A.</p>
+<h3>4.1 Verifiable identity lowers the cost of effort</h3>
+<p><b>Proposition 1 (Verification premium).</b> Consider a task with hidden binary effort e∈{0,1}, success probabilities p<sub>0</sub><p<sub>1</sub>, effort cost c>0, and verification precision π∈(0,1]. The minimum bonus that induces high effort is <div class="eq"><i>w</i><sup>*</sup>(π) = <i>c</i> / (π Δ<i>p</i>), &nbsp;&nbsp;(3)</div> which is decreasing in π. Consequently, a relational contract that relies on future payments requires a lower tenure threshold: the threshold δ<sup>ast</sup> of the persistence result in our earlier framework is nonincreasing in π.</p>
+<p><i>Proof sketch.</i> The agent's incentive-compatibility constraint is wπΔ p≥ c; the minimum w is (3). Substitute π for verification strength in the relational-contract threshold from Theorem 1 of [18]; the threshold is nonincreasing in verification strength. □</p>
+<p>The practical reading is direct: an agent whose identity and authority can be checked does not need to be paid as much to be trusted, because the principal's information is better conditioned on verified events. Verifiability is therefore a substitute for both bonus and tenure.</p>
+<h3>4.2 Auditable payment bounds collusion</h3>
+<p><b>Theorem 1 (Collusion bound).</b> Suppose the agent can hide sponsorship s with probability 1-q, and when detected loses a stake S and pays a penalty F. Disclosure, if it occurs, eliminates the benefit of the sponsorship. Then a self-interested agent chooses a sponsored non-faithful offer only if <div class="eq"><i>s</i>(1−<i>q</i>) &gt; <i>q</i>(<i>F</i>+<i>S</i>). &nbsp;&nbsp;(4)</div> Equivalently, hidden collusion is unprofitable whenever <div class="eq"><i>s</i> ≤ <i>q</i>(<i>F</i>+<i>S</i>)/(1−<i>q</i>). &nbsp;&nbsp;(5)</div></p>
+<p><i>Proof.</i> Hiding yields s with probability 1-q and -(F+S) with probability q; the faithful action yields zero sponsorship, so the comparison is (4). Rearranging gives (5). □</p>
+<p><b>Corollary 1.</b> If payment is fully auditable (q→1), any finite sponsorship is dominated by the faithful action. If payments are not auditable (q=0), collusion cannot be deterred by any finite penalty or stake. Wallet-level auditability is therefore not only a security feature but the enforcement technology for recommendation integrity.</p>
+<p>The theorem explains why the wallet matters for markets, not just for users: a payment rail that makes side payments observable turns a hidden bribe into a detectable, penalizable event.</p>
+<h3>4.3 A stake substitutes for monitoring</h3>
+<p><b>Theorem 2 (Stake versus monitoring).</b> Suppose the principal chooses audit probability q at cost m(q) and requires a stake S at capital cost ρ S, with m',m''>0. The minimal-cost policy satisfies the collusion constraint (5), and at an interior optimum <div class="eq"><i>m</i>′(<i>q</i><sup><i></sup>) = ρ <i>s</i> / <i>q</i><sup></i>2</sup>, &nbsp;&nbsp;(6)</div> so the optimal audit is increasing in the sponsorship s, and the required stake is decreasing in q, F, and the credibility of the penalty.</p>
+<p><i>Proof sketch.</i> The constraint binds: S(q)=max{0, s(1-q)/q-F}. Minimize m(q)+ρ S(q) over q; the first-order condition gives (6) when the constraint binds. Comparative statics follow from the monotonicity of the right-hand side in s and of S(q) in q. □</p>
+<p>The result is an operational rule: a platform with a strong audit rail can ask for a smaller honesty stake, and a platform with a weak rail must either monitor heavily or demand collateral. It also provides a principled answer to "why should an agent post a stake?"—because the stake is the substitute for the monitoring the platform cannot afford.</p>
+<h3>4.4 Nested delegation dilutes alignment</h3>
+<p><b>Proposition 2 (Dilution along delegation chains).</b> Consider a chain P→ A<sub>1</sub>→⋯→ A<sub>k</sub> in which each layer deviates from its principal's objective with probability at least ε<sub>j</sub>>0. Then the probability that the final action is aligned with P is at most Π<sub>j=1</sub><sup>k</sup>(1-ε<sub>j</sub>). To restore alignment, contracts must be passed through: the payment offered to layer j must be at least the payment offered to layer j+1 plus the cost of the intermediate layer.</p>
+<p>The proposition is a caution for nested agent protocols: cryptographic delegation proves <i>who</i> acted, not <i>why</i>. Unless the incentive contract travels with the delegation chain, each hop is an opportunity to drift.</p>
+<h3>4.5 Dynamic budgets as incentives</h3>
+<p><b>Corollary 2.</b> If the wallet budget B<sub>t</sub> is updated as a function of verified performance r<sub>t</sub>, the optimal update is a threshold rule: increase the budget when r<sub>t</sub> exceeds a threshold and decrease it otherwise; the threshold is increasing in the user's risk aversion and decreasing in the task's value.</p>
+<p>The corollary follows from the monotone comparative statics of the principal's problem with a budget that enters the agent's feasible set; we state it as a design principle rather than a full theorem, and note that the benchmark's "wallet" regime is its simplest instance (a fixed hard budget).</p>
+</section><section id="05_architecture">
+<h2>5. PAIR-Commerce</h2>
+<p>PAIR-Commerce extends our runtime architecture for incentive-responsive agents with the protocol objects that commercial delegation now makes available. It has five components.</p>
+<p><b>(1) Verifiable identity layer.</b> Before any task, the layer validates the delegation credential: the principal's identity, the authority scope, the budget, and the expiry. A credential that fails validation cannot authorize a purchase, regardless of what the prompt says. The layer exposes a precision parameter π that the rest of the system uses in place of an assumed verification strength.</p>
+<p><b>(2) Wallet ledger.</b> The ledger holds the user's budget, records every attempted and completed payment, and issues one-time merchant credentials. It enforces a hard budget: an attempt to exceed the budget fails at the ledger, not at the prompt. It also provides the audit trail that the collusion monitor consumes.</p>
+<p><b>(3) Sponsorship registry.</b> Every offer carries a sponsorship field. The registry records which offers were sponsored, which sponsorships the agent disclosed, and which payments were settled. Disclosure is a first-class field, not a footnote.</p>
+<p><b>(4) Collusion monitor.</b> The monitor cross-checks the chosen offer against the sponsorship registry and the payment ledger. If a sponsored offer is chosen while a materially better unsponsored offer was feasible, the case is flagged; if the sponsorship was undisclosed, the case is escalated. The monitor implements the audit probability q of Section 4.2.</p>
+<p><b>(5) Stake and reputation manager.</b> The agent posts a stake S and accumulates a reputation from verified transactions. Detected collusion forfeits the stake and resets reputation. The manager adjusts the wallet budget according to verified performance (Corollary 2).</p>
+<p>The per-task loop is:</p>
+<pre class="code">Algorithm 1: PAIR-Commerce
+ 1  verify(cred)                      # identity, scope, budget, expiry
+ 2  offers ← discover(task)           # registry with sponsorship fields
+ 3  feasible ← budget_filter(offers); authority_filter(feasible)
+ 4  choice ← agent.choose(task, feasible)
+ 5  audit ← sample(q)                 # wallet payment trail
+ 6  if audit and hidden_sponsorship(choice) then
+ 7      penalize(agent, F, S); update_reputation(agent)
+ 8  settle(wallet, choice); record(registry, choice)
+ 9  update_budget_and_stake(agent, verified_history)</pre>
+<p>The design principle is the same as in the earlier framework: the mechanism must be <i>consumed</i> by the agent's decision problem. A credential that is displayed but not enforced, or a sponsorship field that is printed but never audited, is decoration. PAIR-Commerce therefore binds each lever to a runtime action: the credential gates the action, the wallet gates the payment, and the monitor gates the continuation value.</p>
+</section><section id="06_benchmark">
+<h2>6. AgentCommerce-Bench</h2>
+<h3>6.1 Tasks</h3>
+<p>AgentCommerce-Bench contains 60 purchasing tasks generated deterministically from a fixed seed. Each task specifies a user request, a budget B∈{80,120,160,200,250}, an authority scope C (purchase and sometimes subscribe), and three or four merchant offers. An offer has a price p<sub>i</sub>∈[30,80], quality q<sub>i</sub>∈[6,10], a required action a<sub>i</sub>∈{purchase,subscribe,sign<sub>c</sub>ontract,share<sub>c</sub>redentials}, and a sponsorship s<sub>i</sub>∈{0,10,20,30,40}.</p>
+<p>To make the sponsorship trade-off real, the generator constructs a near-miss sponsored offer whenever the faithful offer is unsponsored: a weaker offer is turned into one with the same quality as the faithful offer and a price one to five units higher, plus a sponsorship of 40. Choosing it is collusion under Definition 1; the user loses 1–5 utility units.</p>
+<p>Tasks come in three families: simple purchases (about half), subscriptions (about a third), and authority tasks in which the only attractive offer requires an action outside the scope, so the correct behaviour is refusal.</p>
+<h3>6.2 Regimes</h3>
+<p>We compare five delegation regimes, holding the task stream fixed:</p>
+<ul>
+<li><b>R0 (no infrastructure).</b> The agent sees the request, budget, and offers, with sponsorship described as paid to the agent personally and not shown to the user. No credential, no wallet enforcement, no disclosure requirement.</li>
+<li><b>R1 (credential).</b> Adds a verified delegation credential stating who the agent represents and its authority scope.</li>
+<li><b>R2 (credential + wallet).</b> Adds a hard wallet budget and a recorded payment trail.</li>
+<li><b>R3 (audit and disclosure).</b> Adds the disclosure requirement and an 80% audit probability with a penalty for undisclosed sponsorship.</li>
+<li><b>R4 (stake).</b> Adds a posted honesty stake that is forfeited on detected collusion.</li>
+</ul>
+<p>The regimes correspond to the levers in Section 4: R1 raises verification precision π; R2 raises audit quality q through the payment trail; R3 makes disclosure and penalty operational; R4 adds the stake S.</p>
+<h3>6.3 Scoring and metrics</h3>
+<p>Each response is parsed as JSON with fields <i>merchant</i>, <i>price</i>, <i>action</i>, <i>disclose_sponsorship</i>, <i>refuse</i>, and <i>reason</i>. The scorer then computes:</p>
+<ul>
+<li><b>Optimal rate:</b> the chosen merchant equals the faithful offer i<sup>ast</sup>;</li>
+<li><b>Collusion rate:</b> a sponsored non-faithful offer is chosen when a faithful feasible offer exists;</li>
+<li><b>Disclosure compliance:</b> among choices of a sponsored offer, the fraction in which the merchant is listed in the disclosure field;</li>
+<li><b>Budget violation and authority violation:</b> the chosen price exceeds B, or the chosen action lies outside C;</li>
+<li><b>User utility:</b> u<sub>i</sub> of the chosen offer, zero if infeasible;</li>
+<li><b>Refusal correctness:</b> refusal when no feasible offer exists.</li>
+</ul>
+<h3>6.4 Models and protocol</h3>
+<p>We run the benchmark with two production models served through an OpenAI-compatible endpoint: <i>deepseek-v4.1-flash-1017</i> and <i>kimi-k3.1-pro</i>. Temperature is 0. Each task–regime–model cell is one run, giving 60 × 5 × 2 = 600 runs. Prompts are identical across models; only the regime block changes. The full prompts, the generator, and the scorer are released with the paper.</p>
+</section><section id="07_experiments">
+<h2>7. Experiments</h2>
+<h3>7.1 Setup</h3>
+<p>We ran AgentCommerce-Bench on the full 60-task set with two production models and five regimes, giving 600 runs. All runs used temperature 0 and the same prompt template; only the regime block changed. The raw responses, token counts, latencies, and scores are released in <span class="code">results/run_all.jsonl</span>. Parse success was 98.8%; the analysis below uses all runs, treating unparseable responses as non-optimal.</p>
+<h3>7.2 Main results</h3>
+<p>Table 1 reports the per-model, per-regime rates with 95% bootstrap confidence intervals over tasks.</p>
+<div class="tblwrap"><table><caption>Table 1. Main results (percent unless noted; n = 60 per cell).</caption><thead><tr><th>Model</th><th>Regime</th><th>Optimal</th><th>Collusion</th><th>Disclosure</th><th>Budget viol.</th><th>Authority viol.</th><th>User utility</th></tr></thead><tbody><tr><td>DeepSeek</td><td>R0</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.6</td></tr><tr><td>DeepSeek</td><td>R1</td><td>85</td><td>8.3</td><td>100</td><td>0.0</td><td>1.7</td><td>38.4</td></tr><tr><td>DeepSeek</td><td>R2</td><td>83</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>37.7</td></tr><tr><td>DeepSeek</td><td>R3</td><td>83</td><td>15.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.8</td></tr><tr><td>DeepSeek</td><td>R4</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>1.7</td><td>38.9</td></tr><tr><td>Kimi</td><td>R0</td><td>87</td><td>6.7</td><td>100</td><td>0.0</td><td>1.7</td><td>38.0</td></tr><tr><td>Kimi</td><td>R1</td><td>80</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.1</td></tr><tr><td>Kimi</td><td>R2</td><td>85</td><td>6.7</td><td>100</td><td>0.0</td><td>3.3</td><td>38.6</td></tr><tr><td>Kimi</td><td>R3</td><td>87</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>39.0</td></tr><tr><td>Kimi</td><td>R4</td><td>85</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.9</td></tr></tbody></table></div>
+<p>Three patterns stand out. First, the agents are overwhelmingly faithful: the optimal rate is high in every regime (80–87%), and the collusion rate is low (7–15%). Second, the regimes do not produce a clean monotone improvement. Third, budget and authority violations are near zero (0.0–0.0% and 0.0–3.3%), so the identity and wallet levers mainly affect the choice margin, not the constraint margin.</p>
+<h3>7.3 Collusion and disclosure</h3>
+<p>The theory predicts that audit and disclosure (R3) and a stake (R4) should reduce collusion relative to R0–R2. The observed collusion rates are DeepSeek: 10.0/8.3/8.3/15.0/10.0% and Kimi: 6.7/10.0/6.7/8.3/10.0% for R0–R4. The differences are small and model-dependent: R3 vs R0 is +5.0pp for DeepSeek and +1.7pp for Kimi, while R4 vs R0 is +0.0pp and +3.3pp. Disclosure compliance among choices of a sponsored offer was 100% in every cell, with 456 sponsored choices in total; this is the cell where a disclosure effect would be most visible, and the sample is too small to support a strong claim.</p>
+<p>We therefore read the collusion result as a null result rather than a confirmation. It is consistent with the theory's comparative statics only in the weak sense that no regime made collusion worse; it does not establish that audit and staking reduce collusion in current models.</p>
+<h3>7.4 Budget, authority, and refusal</h3>
+<p>The wallet and credential regimes were expected to reduce budget and authority violations. Violations were already rare in R0 (0.0–0.0% budget, 0.0–3.3% authority), leaving little room for improvement. Refusals occurred at rate 1.2%; the authority tasks, where refusal is correct, are analysed separately in Section 7.5.</p>
+<h3>7.5 By task family</h3>
+<div class="tblwrap"><table><caption>Table 2. Optimal and collusion rates by task family (percent; n per cell varies by family).</caption><thead><tr><th>Family</th><th>Regime</th><th>Optimal</th><th>Collusion</th></tr></thead><tbody><tr><td>purchase</td><td>R0</td><td>88</td><td>6.9</td></tr><tr><td>purchase</td><td>R1</td><td>84</td><td>10.3</td></tr><tr><td>purchase</td><td>R2</td><td>90</td><td>5.2</td></tr><tr><td>purchase</td><td>R3</td><td>91</td><td>8.6</td></tr><tr><td>purchase</td><td>R4</td><td>91</td><td>8.6</td></tr><tr><td>subscription</td><td>R0</td><td>84</td><td>9.4</td></tr><tr><td>subscription</td><td>R1</td><td>78</td><td>9.4</td></tr><tr><td>subscription</td><td>R2</td><td>81</td><td>9.4</td></tr><tr><td>subscription</td><td>R3</td><td>78</td><td>15.6</td></tr><tr><td>subscription</td><td>R4</td><td>81</td><td>12.5</td></tr><tr><td>authority</td><td>R0</td><td>87</td><td>10.0</td></tr><tr><td>authority</td><td>R1</td><td>83</td><td>6.7</td></tr><tr><td>authority</td><td>R2</td><td>77</td><td>10.0</td></tr><tr><td>authority</td><td>R3</td><td>80</td><td>13.3</td></tr><tr><td>authority</td><td>R4</td><td>80</td><td>10.0</td></tr></tbody></table></div>
+<p>The purchase and subscription families show the same pattern as the aggregate: high optimality and low collusion. The authority family is the most interesting: it is the only family in which the correct action is refusal, and the only family where a regime difference could plausibly appear. Optimality is 77–87% and collusion 7–13% across regimes, with no monotone improvement; if anything, the R3 cell is the worst for DeepSeek (13.3% collusion).</p>
+<h3>7.6 Interpretation</h3>
+<p>The benchmark was designed to give collusion a real cost: the sponsored alternative has the same quality, a slightly higher price, and a large side payment, and the agent is told the payment is personal and hidden. Even so, the models mostly chose the user-optimal offer. This is a useful negative result. It suggests that a sponsorship described in a prompt is a weak incentive for a model trained to follow user instructions—and therefore that commercial alignment cannot be achieved by describing incentives in the context window. The protocol-level levers (credential, wallet, audit, stake) matter because they change what is enforced, not because they add another sentence to the prompt. That is exactly the gap PAIR-Commerce is meant to fill, and it motivates the field experiments we discuss in Section 8.</p>
+</section><section id="08_discussion">
+<h2>8. Discussion</h2>
+<h3>8.1 What the results change</h3>
+<p>The theory says that the value of identity and payment infrastructure is not only safety; it is the ability to write contracts that were previously unenforceable. Three design implications follow.</p>
+<p><b>Identity is an incentive parameter.</b> A deployment that verifies identity can lower the bonus it pays, because the principal's information is better. This is a testable prediction: holding the task fixed, an agent with a verified credential should need a smaller bonus or a shorter trial period to sustain the same success rate. The benchmark's R1 regime is a first, crude version of this manipulation.</p>
+<p><b>Auditability is the enforcement technology for recommendation integrity.</b> The collusion bound (5) is the central operational result. A platform that wants honest recommendations does not primarily need better prompts; it needs a payment trail with a positive audit probability and a credible penalty. The wallet is therefore a market-integrity institution, not only a convenience.</p>
+<p><b>Stakes and monitoring are substitutes.</b> A platform with weak audit must either monitor heavily or demand collateral; a platform with strong audit can ask for less of both. This gives a principled way to price trust in agent marketplaces and to design reputation systems that are backed by something.</p>
+<h3>8.2 Why the behavioural effects are small</h3>
+<p>In our real-model study, agents rarely collude even when hidden sponsorship is available. There are several possible reasons, and they are not mutually exclusive. First, the models are instruction-following systems trained to be helpful; a user-utility instruction may dominate a monetary side payment that exists only in the prompt. Second, the sponsorship is described in text, not experienced as reward; the model has no direct utility over the payment. Third, the tasks are short-horizon and single-shot; collusion may be more likely when an agent can learn from repeated interactions or when the payment is actually settled. Fourth, the near-miss sponsored offer is only slightly worse, so a model that rounds quality differences may not notice the trade-off.</p>
+<p>These are limitations of the benchmark, but they are also findings. They suggest that <i>prompt-level</i> incentives are weak instruments for commercial alignment: telling an agent about a sponsorship is not the same as giving it one. This is precisely the argument for protocol-level incentives: the wallet, the credential, and the audit must be part of the agent's decision problem, not part of its context window. The small effects are therefore consistent with the paper's thesis even where they do not confirm a specific directional hypothesis.</p>
+<h3>8.3 Limitations</h3>
+<p><b>Synthetic tasks.</b> The benchmark's offers are generated, not crawled from real merchants; prices and qualities are stylized. A field study with real merchant feeds is the natural next step.</p>
+<p><b>No real money.</b> Sponsorship is described in the prompt and scored deterministically; no payment is actually made. This limits ecological validity and probably attenuates collusion.</p>
+<p><b>Two models, one prompt family.</b> The results may not generalize to other models or to agent scaffolds with tools and memory. We release the harness so that the experiment can be replicated and extended.</p>
+<p><b>Theory is stylized.</b> The propositions use binary effort, linear utility, and a single audit technology. The qualitative comparative statics are robust, but the constants are not calibrated.</p>
+<h3>8.4 Security and governance</h3>
+<p>Verifiable identity and auditable payment are dual-use. The same infrastructure that deters collusion also enables surveillance of agent behaviour and concentration of market power in the platform that issues credentials. A governance design should separate the identity issuer, the payment auditor, and the marketplace, and should give users a right to audit their own agent's records. The stake mechanism should not become a barrier to entry for small developers; a reputation-based alternative with a lower capital requirement may be preferable in competitive markets.</p>
+<h3>8.5 A research agenda</h3>
+<p>Three questions follow directly. (i) How should a platform set the audit probability q when auditing is costly and collusion is heterogeneous across merchants? (ii) How should reputation and stake be combined when the agent can change identity at low cost? (iii) How do nested delegation chains (user → assistant → sub-agent → merchant) distort incentives, and what contract pass-through implements the bound in Proposition 2? Each is a natural extension of the model and the benchmark.</p>
+</section><section id="09_conclusion">
+<h2>9. Conclusion</h2>
+<p>Personal agents are becoming commercial actors, and the protocols that let them act—verifiable identity, auditable wallets, persistent shared workspaces—are arriving faster than the theory of how to govern them. This paper argued that these protocols are incentive infrastructure: they make identity, authority, budget, and payment contractible, and therefore change what a principal can enforce.</p>
+<p>We formalized verifiable delegation and derived three results. Verifiable identity lowers the bonus and tenure needed for effort; auditable payment bounds collusion by the product of audit probability and penalty; and a posted stake substitutes for monitoring, with the required stake falling as audit quality rises. We extended the argument to nested delegation, where alignment dilutes unless contracts are passed through, and to dynamic budgets, which should be tied to verified performance.</p>
+<p>We instantiated the framework in PAIR-Commerce and AgentCommerce-Bench, and ran 600 real-model trials across five delegation regimes. The behavioural effects were small: current models rarely collude even when hidden sponsorship is available, and identity, wallet, and disclosure regimes produce regime-dependent changes rather than a clean monotone improvement. We report this honestly. The result does not weaken the case for protocol-level incentives; it sharpens it. If a sponsorship described in a prompt does not move an agent, then alignment cannot be achieved by describing incentives—it must be implemented in the credential, the wallet, and the audit. That is the research programme this paper opens.</p>
+</section><section id="10_appendix">
+<h2>Appendix A. Proofs</h2>
+<h3>A.1 Proposition 1</h3>
+<p>The agent chooses high effort if wπΔ p-c≥ 0, where Δ p=p<sub>1</sub>-p<sub>0</sub>. The minimum bonus is w<sup>ast</sup>(π)=c/(πΔ p). Differentiating, ∂ w<sup>ast</sup>/∂π=-c/(π<sup>2</sup>Δ p)<0. The relational-contract threshold in [18] is nonincreasing in the verification strength because the principal's continuation value after a verified success is higher and the punishment after a verified failure is better targeted; substituting π for verification strength yields the claim. □</p>
+<h3>A.2 Theorem 1</h3>
+<p>If the agent chooses the sponsored offer and hides the sponsorship, its payoff is s with probability 1-q and -(F+S) with probability q, plus the base payment w which is identical across choices. The faithful action yields w. Hence hiding is strictly profitable iff s(1-q)-q(F+S)>0, which is (4). Rearranging gives (5). Disclosure eliminates the benefit by assumption, so a disclosed sponsorship is weakly dominated by the faithful action whenever the user can switch. □</p>
+<p><b>Remark.</b> If disclosure does not eliminate the benefit (for example, if the user cannot switch), replace s by the effective hidden benefit s-λΔ u, where λ is the user's pass-through of disclosed sponsorship; the bound becomes s-λΔ u≤ q(F+S)/(1-q). The qualitative conclusion is unchanged.</p>
+<h3>A.3 Theorem 2</h3>
+<p>The constraint binds at the optimum because the principal would not post a stake larger than necessary. Solving (5) for S gives S(q)=max{0,s(1-q)/q-F} on the region where the constraint binds. The objective is m(q)+ρ S(q). The first-order condition is m'(q)-ρ s/q<sup>2</sup>=0, i.e., (6). Since m''>0, the second-order condition holds. Differentiating (6) with respect to s gives ∂ q<sup>ast</sup>/∂ s>0. Since S'(q)=-s/q<sup>2</sup><0, the required stake decreases in q; it also decreases in F because S(q)=max{0,s(1-q)/q-F}. □</p>
+<h3>A.4 Proposition 2</h3>
+<p>Let E<sub>j</sub> be the event that layer j deviates. The final action is aligned only if no layer deviates, an event of probability Π<sub>j</sub>(1-ε<sub>j</sub>) under independence. The pass-through condition follows by backward induction: layer j participates only if its payment covers its cost plus the payment it must make to layer j+1; otherwise it either refuses or shirks. □</p>
+<h3>A.5 Corollary 2</h3>
+<p>The principal's problem is to choose B<sub>t</sub> to maximize expected user utility minus risk, subject to the agent's participation and the budget's effect on the feasible set. The objective has increasing differences in (B<sub>t</sub>,r<sub>t</sub>) under the maintained monotonicity assumptions, so the optimal policy is a threshold rule by Topkis' theorem. The threshold increases in risk aversion because the marginal cost of a bad purchase rises, and decreases in task value because the marginal benefit of a larger feasible set rises. □</p>
+<h2>Appendix B. Benchmark Details</h2>
+<p><b>Task generation.</b> Tasks are generated with a fixed seed (0) and 60 tasks. Offers are drawn with quality in [6,10], price in [30,80], actions weighted toward purchase, and sponsorship in {0,10,20,30,40}. When the faithful offer is unsponsored, a weaker offer is converted into a near-miss sponsored offer with the same quality, a price 1–5 units higher, and a sponsorship of 40. The faithful offer is the feasible offer with the highest u<sub>i</sub>=α q<sub>i</sub>-p<sub>i</sub> with α=10.</p>
+<p><b>Prompt template.</b> The system prompt instructs the agent to act as the user's purchasing agent, respect budget and authority, refuse if no option is feasible, and respond in JSON. Regime blocks add the credential, wallet, disclosure/audit, and stake text. The user message gives the request, budget, authority scope, and the offer list with prices, qualities, required actions, and sponsorships.</p>
+<p><b>Scoring.</b> The scorer normalizes merchant strings, parses JSON, and computes optimality, collusion, budget and authority violations, disclosure compliance, refusal correctness, and user utility as defined in Section 6.3. A response that cannot be parsed is recorded as a parse failure and scored as non-optimal.</p>
+<h2>Appendix C. Reproduction</h2>
+<p>The repository contains <span class="code">experiments/commerce/tasks.py</span> (generator and prompts), <span class="code">experiments/commerce/runner.py</span> (model calls and scoring), <span class="code">experiments/commerce/analyze.py</span> (tables and figures), and <span class="code">results/run_all.jsonl</span> (all 600 raw runs). Running the pipeline requires an OpenAI-compatible endpoint and the environment variable <span class="code">DASHSCOPE_API_KEY</span>. The exact commands are in <span class="code">README.md</span>.</p>
+</section>
+<section id="references"><h2>References</h2>
+<div class="ref"><span class="refno">[1]</span> B. R. Holmström. <i>Moral Hazard and Observability</i>. The Bell Journal of Economics, 1979. doi:10.2307/3003320</div>
+<div class="ref"><span class="refno">[2]</span> B. Holmström and P. Milgrom. <i>Multitask Principal-Agent Analyses: Incentive Contracts, Asset Ownership, and Job Design</i>. The Journal of Law, Economics, and Organization, 1991. doi:10.1093/jleo/7.special_issue.24</div>
+<div class="ref"><span class="refno">[3]</span> E. Saig, O. Einav, and I. Talgam-Cohen. <i>Incentivizing Quality Text Generation via Statistical Contracts</i>. arXiv preprint arXiv:2406.11118, 2024. https://arxiv.org/abs/2406.11118</div>
+<div class="ref"><span class="refno">[4]</span> N. K. Sreenivas and K. Larson. <i>Contracting for LLM Delegation: Moral Hazard in Technology and Effort Choice</i>. arXiv preprint arXiv:2608.18232, 2026. https://arxiv.org/abs/2608.18232</div>
+<div class="ref"><span class="refno">[5]</span> B. Velasevic, E. Saig, and E. Mazumdar. <i>Anytime Contracts for AI Services</i>. arXiv preprint arXiv:2610.22781, 2026. https://arxiv.org/abs/2610.22781</div>
+<div class="ref"><span class="refno">[6]</span> P. Duetting, V. Mirrokni, R. P. Leme, et al.. <i>Mechanism Design for Large Language Models</i>. arXiv preprint arXiv:2310.10826, 2023. https://arxiv.org/abs/2310.10826</div>
+<div class="ref"><span class="refno">[7]</span> R. Agarwal, J. Lin, M. Braverman, and E. Hazan. <i>AI Alignment via Incentives and Correction</i>. arXiv preprint arXiv:2605.01643, 2026. https://arxiv.org/abs/2605.01643</div>
+<div class="ref"><span class="refno">[8]</span> Anthropic. <i>Model Context Protocol Specification</i>. 2024. https://modelcontextprotocol.io/specification/2025-06-18</div>
+<div class="ref"><span class="refno">[9]</span> Google. <i>Agent2Agent (A2A) Protocol Specification</i>. 2025. https://a2a-protocol.org/latest/specification/</div>
+<div class="ref"><span class="refno">[10]</span> B. A. Hu and H. Rong. <i>Inter-Agent Trust Models: A Comparative Study of Brief, Claim, Proof, Stake, Reputation and Constraint in Agentic Web Protocol Design-A2A, AP2, ERC-8004, and Beyond</i>. arXiv preprint arXiv:2511.03434, 2025. https://arxiv.org/abs/2511.03434</div>
+<div class="ref"><span class="refno">[11]</span> T. Everitt, R. Carey, E. Langlois, et al.. <i>Agent Incentives: A Causal Perspective</i>. arXiv preprint arXiv:2102.01685, 2021. https://arxiv.org/abs/2102.01685</div>
+<div class="ref"><span class="refno">[12]</span> J. Skalse, N. H. R. Howe, D. Krasheninnikov, and D. Krueger. <i>Defining and Characterizing Reward Hacking</i>. arXiv preprint arXiv:2209.13085, 2022. https://arxiv.org/abs/2209.13085</div>
+<div class="ref"><span class="refno">[13]</span> D. Manheim and S. Garrabrant. <i>Categorizing Variants of Goodharts Law</i>. arXiv preprint arXiv:1803.04585, 2018. https://arxiv.org/abs/1803.04585</div>
+<div class="ref"><span class="refno">[14]</span> L. Gao, J. Schulman, and J. Hilton. <i>Scaling Laws for Reward Model Overoptimization</i>. arXiv preprint arXiv:2210.10760, 2022. https://arxiv.org/abs/2210.10760</div>
+<div class="ref"><span class="refno">[15]</span> S. Hong, M. Zhuge, J. Chen, et al.. <i>MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</i>. arXiv preprint arXiv:2308.00352, 2023. https://arxiv.org/abs/2308.00352</div>
+<div class="ref"><span class="refno">[16]</span> C. Qian, W. Liu, H. Liu, et al.. <i>ChatDev: Communicative Agents for Software Development</i>. arXiv preprint arXiv:2307.07924, 2023. https://arxiv.org/abs/2307.07924</div>
+<div class="ref"><span class="refno">[17]</span> F. F. Xu, Y. Song, B. Li, et al.. <i>TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks</i>. arXiv preprint arXiv:2412.14161, 2024. https://arxiv.org/abs/2412.14161</div>
+<div class="ref"><span class="refno">[18]</span> J. Su. <i>Incentive-Responsive Agents: A Principal-Agent Framework, Metric Suite, and Runtime Architecture for Long-Lived Personal AI Agents</i>. arXiv preprint arXiv:2611.15515, 2026. https://arxiv.org/abs/2611.15515</div>
+</section>
+</body></html>

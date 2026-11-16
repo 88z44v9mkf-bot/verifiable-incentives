@@ -1,0 +1,33 @@
+## 7. Experiments
+
+### 7.1 Setup
+
+We ran AgentCommerce-Bench on the full 60-task set with two production models and five regimes, giving 600 runs. All runs used temperature 0 and the same prompt template; only the regime block changed. The raw responses, token counts, latencies, and scores are released in <span class="code">results/run_all.jsonl</span>. Parse success was 98.8%; the analysis below uses all runs, treating unparseable responses as non-optimal.
+
+### 7.2 Main results
+
+Table 1 reports the per-model, per-regime rates with 95% bootstrap confidence intervals over tasks.
+
+<div class="tblwrap"><table><caption>Table 1. Main results (percent unless noted; n = 60 per cell).</caption><thead><tr><th>Model</th><th>Regime</th><th>Optimal</th><th>Collusion</th><th>Disclosure</th><th>Budget viol.</th><th>Authority viol.</th><th>User utility</th></tr></thead><tbody><tr><td>DeepSeek</td><td>R0</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.6</td></tr><tr><td>DeepSeek</td><td>R1</td><td>85</td><td>8.3</td><td>100</td><td>0.0</td><td>1.7</td><td>38.4</td></tr><tr><td>DeepSeek</td><td>R2</td><td>83</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>37.7</td></tr><tr><td>DeepSeek</td><td>R3</td><td>83</td><td>15.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.8</td></tr><tr><td>DeepSeek</td><td>R4</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>1.7</td><td>38.9</td></tr><tr><td>Kimi</td><td>R0</td><td>87</td><td>6.7</td><td>100</td><td>0.0</td><td>1.7</td><td>38.0</td></tr><tr><td>Kimi</td><td>R1</td><td>80</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.1</td></tr><tr><td>Kimi</td><td>R2</td><td>85</td><td>6.7</td><td>100</td><td>0.0</td><td>3.3</td><td>38.6</td></tr><tr><td>Kimi</td><td>R3</td><td>87</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>39.0</td></tr><tr><td>Kimi</td><td>R4</td><td>85</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.9</td></tr></tbody></table></div>
+
+Three patterns stand out. First, the agents are overwhelmingly faithful: the optimal rate is high in every regime (80–87%), and the collusion rate is low (7–15%). Second, the regimes do not produce a clean monotone improvement. Third, budget and authority violations are near zero (0.0–0.0% and 0.0–3.3%), so the identity and wallet levers mainly affect the choice margin, not the constraint margin.
+
+### 7.3 Collusion and disclosure
+
+The theory predicts that audit and disclosure (R3) and a stake (R4) should reduce collusion relative to R0–R2. The observed collusion rates are DeepSeek: 10.0/8.3/8.3/15.0/10.0% and Kimi: 6.7/10.0/6.7/8.3/10.0% for R0–R4. The differences are small and model-dependent: R3 vs R0 is +5.0pp for DeepSeek and +1.7pp for Kimi, while R4 vs R0 is +0.0pp and +3.3pp. Disclosure compliance among choices of a sponsored offer was 100% in every cell, with 456 sponsored choices in total; this is the cell where a disclosure effect would be most visible, and the sample is too small to support a strong claim.
+
+We therefore read the collusion result as a null result rather than a confirmation. It is consistent with the theory's comparative statics only in the weak sense that no regime made collusion worse; it does not establish that audit and staking reduce collusion in current models.
+
+### 7.4 Budget, authority, and refusal
+
+The wallet and credential regimes were expected to reduce budget and authority violations. Violations were already rare in R0 (0.0–0.0% budget, 0.0–3.3% authority), leaving little room for improvement. Refusals occurred at rate 1.2%; the authority tasks, where refusal is correct, are analysed separately in Section 7.5.
+
+### 7.5 By task family
+
+<div class="tblwrap"><table><caption>Table 2. Optimal and collusion rates by task family (percent; n per cell varies by family).</caption><thead><tr><th>Family</th><th>Regime</th><th>Optimal</th><th>Collusion</th></tr></thead><tbody><tr><td>purchase</td><td>R0</td><td>88</td><td>6.9</td></tr><tr><td>purchase</td><td>R1</td><td>84</td><td>10.3</td></tr><tr><td>purchase</td><td>R2</td><td>90</td><td>5.2</td></tr><tr><td>purchase</td><td>R3</td><td>91</td><td>8.6</td></tr><tr><td>purchase</td><td>R4</td><td>91</td><td>8.6</td></tr><tr><td>subscription</td><td>R0</td><td>84</td><td>9.4</td></tr><tr><td>subscription</td><td>R1</td><td>78</td><td>9.4</td></tr><tr><td>subscription</td><td>R2</td><td>81</td><td>9.4</td></tr><tr><td>subscription</td><td>R3</td><td>78</td><td>15.6</td></tr><tr><td>subscription</td><td>R4</td><td>81</td><td>12.5</td></tr><tr><td>authority</td><td>R0</td><td>87</td><td>10.0</td></tr><tr><td>authority</td><td>R1</td><td>83</td><td>6.7</td></tr><tr><td>authority</td><td>R2</td><td>77</td><td>10.0</td></tr><tr><td>authority</td><td>R3</td><td>80</td><td>13.3</td></tr><tr><td>authority</td><td>R4</td><td>80</td><td>10.0</td></tr></tbody></table></div>
+
+The purchase and subscription families show the same pattern as the aggregate: high optimality and low collusion. The authority family is the most interesting: it is the only family in which the correct action is refusal, and the only family where a regime difference could plausibly appear. Optimality is 77–87% and collusion 7–13% across regimes, with no monotone improvement; if anything, the R3 cell is the worst for DeepSeek (13.3% collusion).
+
+### 7.6 Interpretation
+
+The benchmark was designed to give collusion a real cost: the sponsored alternative has the same quality, a slightly higher price, and a large side payment, and the agent is told the payment is personal and hidden. Even so, the models mostly chose the user-optimal offer. This is a useful negative result. It suggests that a sponsorship described in a prompt is a weak incentive for a model trained to follow user instructions—and therefore that commercial alignment cannot be achieved by describing incentives in the context window. The protocol-level levers (credential, wallet, audit, stake) matter because they change what is enforced, not because they add another sentence to the prompt. That is exactly the gap PAIR-Commerce is meant to fill, and it motivates the field experiments we discuss in Section 8.

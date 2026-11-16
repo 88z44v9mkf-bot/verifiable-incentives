@@ -1,0 +1,14 @@
+<h1 class="title">Verifiable Incentives:<br>Identity-Bound Contracts and Collusion-Proof Delegation for Agent Commerce</h1>
+
+<div class="authors">Jipu Su<sup>1,2</sup></div>
+<div class="affil"><sup>1</sup>Chief AI-Native Scientist, Geely Automobile Group, Hangzhou, China</div>
+<div class="affil"><sup>2</sup>Professor, Department of Information Systems, College of Business, City University of Hong Kong, Hong Kong SAR</div>
+<div class="email">jipu.su@geely.com &nbsp;&middot;&nbsp; jeepsu@cityu.edu.hk</div>
+<div class="date">November 2026 &nbsp;&middot;&nbsp; Preprint</div>
+
+<div class="abstractbox">
+<h2>Abstract</h2>
+<p>Personal agents are entering commerce. Industry protocols now let an agent prove, cryptographically, whom it represents and what it may do, while agent wallets give it a real budget, a payment trail, and one-time merchant credentials. These are usually read as security features. We argue they are something more: the missing infrastructure for <i>incentive contracts</i>. When identity, authority, budget, and payment are verifiable, the principal can contract on them&mdash;and the agent's incentives change. We formalize verifiable delegation, model a three-party market of user, agent, and merchant, and derive three results: (i) verifiable identity lowers the bonus and tenure needed to sustain effort; (ii) auditable payments bound merchant collusion, with the bound shrinking as audit probability rises; and (iii) a posted honesty stake substitutes for monitoring, with the required stake decreasing in audit quality and penalty credibility. We also show how alignment dilutes along nested delegation chains unless contracts are passed through. We instantiate the framework in PAIR-Commerce, an architecture with a verifiable identity layer, wallet ledger, sponsorship registry, collusion monitor, and stake manager, and introduce AgentCommerce-Bench, 60 rule-scored purchasing tasks with five delegation regimes. In a real-LLM study with two models and 600 runs, agents rarely collude even when hidden sponsorship is available, and identity, wallet, and disclosure regimes produce small, regime-dependent changes; we report these null and near-null results honestly and discuss what they imply for protocol design. We release the benchmark, prompts, code, and all result files.</p>
+</div>
+
+<div class="keywords"><b>Keywords:</b> agent commerce; verifiable delegation; principal&ndash;agent; collusion; incentive compatibility; agent identity; agent wallets; benchmarking</div>

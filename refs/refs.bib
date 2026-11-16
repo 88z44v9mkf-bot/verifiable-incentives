@@ -1,0 +1,1259 @@
+% =====================================================================
+% refs.bib -- Incentive-Responsive Agents (arXiv preprint, working draft)
+%
+% VERIFICATION PROTOCOL (2026-11-06)
+%   Every entry below was machine-verified on 2026-11-06 by resolving its
+%   identifier against a primary index:
+%     * arXiv entries  -> arXiv Atom API (export.arxiv.org/api/query) and/or
+%                         the arXiv abstract page. Title, author list,
+%                         submission date and arXiv id were read from the
+%                         returned metadata, not typed by hand.
+%     * DOI entries    -> OpenAlex (api.openalex.org/works/doi:...).
+%     * URL-only items -> HTTP 200 verified fetch on the cited URL.
+%   No entry is included unless a lookup returned it. Entries whose venue is
+%   uncertain keep the arXiv preprint form rather than guessing a conference.
+% =====================================================================
+
+
+%% =====================================================================
+% A. Incentive design, contracts, reward hacking and corrigibility
+%% =====================================================================
+
+@article{everitt2021agent,
+  author        = {Everitt, Tom and Carey, Ryan and Langlois, Eric and Ortega, Pedro A and Legg, Shane},
+  title         = {{Agent Incentives: A Causal Perspective}},
+  journal       = {arXiv preprint arXiv:2102.01685},
+  year          = {2021},
+  eprint        = {2102.01685},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2102.01685},
+  url           = {https://arxiv.org/abs/2102.01685},
+  note          = {verified 2026-11-06}
+}
+
+@article{amodei2016concrete,
+  author        = {Amodei, Dario and Olah, Chris and Steinhardt, Jacob and Christiano, Paul and Schulman, John and Mané, Dan},
+  title         = {{Concrete Problems in AI Safety}},
+  journal       = {arXiv preprint arXiv:1606.06565},
+  year          = {2016},
+  eprint        = {1606.06565},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.1606.06565},
+  url           = {https://arxiv.org/abs/1606.06565},
+  note          = {verified 2026-11-06}
+}
+
+@article{skalse2022defining,
+  author        = {Skalse, Joar and Howe, Nikolaus H. R. and Krasheninnikov, Dmitrii and Krueger, David},
+  title         = {{Defining and Characterizing Reward Hacking}},
+  journal       = {arXiv preprint arXiv:2209.13085},
+  year          = {2022},
+  eprint        = {2209.13085},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2209.13085},
+  url           = {https://arxiv.org/abs/2209.13085},
+  note          = {verified 2026-11-06}
+}
+
+@article{manheim2018categorizing,
+  author        = {Manheim, David and Garrabrant, Scott},
+  title         = {{Categorizing Variants of Goodhart's Law}},
+  journal       = {arXiv preprint arXiv:1803.04585},
+  year          = {2018},
+  eprint        = {1803.04585},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.1803.04585},
+  url           = {https://arxiv.org/abs/1803.04585},
+  note          = {verified 2026-11-06}
+}
+
+@article{gao2022scaling,
+  author        = {Gao, Leo and Schulman, John and Hilton, Jacob},
+  title         = {{Scaling Laws for Reward Model Overoptimization}},
+  journal       = {arXiv preprint arXiv:2210.10760},
+  year          = {2022},
+  eprint        = {2210.10760},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2210.10760},
+  url           = {https://arxiv.org/abs/2210.10760},
+  note          = {verified 2026-11-06}
+}
+
+@article{everitt2017corrupted,
+  author        = {Everitt, Tom and Krakovna, Victoria and Orseau, Laurent and Hutter, Marcus and Legg, Shane},
+  title         = {{Reinforcement Learning with a Corrupted Reward Channel}},
+  journal       = {arXiv preprint arXiv:1705.08417},
+  year          = {2017},
+  eprint        = {1705.08417},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.1705.08417},
+  url           = {https://arxiv.org/abs/1705.08417},
+  note          = {verified 2026-11-06}
+}
+
+@article{hubinger2019risks,
+  author        = {Hubinger, Evan and Merwijk, Chris van and Mikulik, Vladimir and Skalse, Joar and Garrabrant, Scott},
+  title         = {{Risks from Learned Optimization in Advanced Machine Learning Systems}},
+  journal       = {arXiv preprint arXiv:1906.01820},
+  year          = {2019},
+  eprint        = {1906.01820},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.1906.01820},
+  url           = {https://arxiv.org/abs/1906.01820},
+  note          = {verified 2026-11-06}
+}
+
+@article{langosco2021goal,
+  author        = {Langosco, Lauro and Koch, Jack and Sharkey, Lee and Pfau, Jacob and Orseau, Laurent and Krueger, David},
+  title         = {{Goal Misgeneralization in Deep Reinforcement Learning}},
+  journal       = {arXiv preprint arXiv:2105.14111},
+  year          = {2021},
+  eprint        = {2105.14111},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2105.14111},
+  url           = {https://arxiv.org/abs/2105.14111},
+  note          = {verified 2026-11-06}
+}
+
+@article{macdiarmid2025natural,
+  author        = {MacDiarmid, Monte and Wright, Benjamin and Uesato, Jonathan and Benton, Joe and Kutasov, Jon and Price, Sara and Bouscal, Naia and Bowman, Sam and Bricken, Trenton and Cloud, Alex and Denison, Carson and Gasteiger, Johannes and Greenblatt, Ryan and Leike, Jan and Lindsey, Jack and Mikulik, Vlad and Perez, Ethan and Rodrigues, Alex and Thomas, Drake and Webson, Albert and Ziegler, Daniel and Hubinger, Evan},
+  title         = {{Natural Emergent Misalignment from Reward Hacking in Production RL}},
+  journal       = {arXiv preprint arXiv:2511.18397},
+  year          = {2025},
+  eprint        = {2511.18397},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2511.18397},
+  url           = {https://arxiv.org/abs/2511.18397},
+  note          = {verified 2026-11-06}
+}
+
+@article{tien2026rogue,
+  author        = {Tien, Jeremy and Anand, Abishek and Tuan, Yu-Rou and Shen, Yuchen and Kolter, J. Zico and Nayebi, Aran},
+  title         = {{ROGUE: Evaluating Corrigibility Failures in Frontier Computer-Use Agents}},
+  journal       = {arXiv preprint arXiv:2606.00341},
+  year          = {2026},
+  eprint        = {2606.00341},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2606.00341},
+  url           = {https://arxiv.org/abs/2606.00341},
+  note          = {verified 2026-11-06}
+}
+
+@article{garber2024partially,
+  author        = {Garber, Andrew and Subramani, Rohan and Luu, Linus and Bedaywi, Mark and Russell, Stuart and Emmons, Scott},
+  title         = {{The Partially Observable Off-Switch Game}},
+  journal       = {arXiv preprint arXiv:2411.17749},
+  year          = {2024},
+  eprint        = {2411.17749},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GT},
+  doi           = {10.48550/arXiv.2411.17749},
+  url           = {https://arxiv.org/abs/2411.17749},
+  note          = {verified 2026-11-06}
+}
+
+@article{wangberg2017game,
+  author        = {Wängberg, Tobias and Böörs, Mikael and Catt, Elliot and Everitt, Tom and Hutter, Marcus},
+  title         = {{A Game-Theoretic Analysis of the Off-Switch Game}},
+  journal       = {Artificial General Intelligence: 10th International Conference, AGI 2017, Melbourne, VIC, Australia, August 15-18, 2017, Proceedings, pages 167-177},
+  year          = {2017},
+  eprint        = {1708.03871},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GT},
+  doi           = {10.48550/arXiv.1708.03871},
+  url           = {https://arxiv.org/abs/1708.03871},
+  note          = {verified 2026-11-06}
+}
+
+@article{duetting2023mechanism,
+  author        = {Duetting, Paul and Mirrokni, Vahab and Leme, Renato Paes and Xu, Haifeng and Zuo, Song},
+  title         = {{Mechanism Design for Large Language Models}},
+  journal       = {arXiv preprint arXiv:2310.10826},
+  year          = {2023},
+  eprint        = {2310.10826},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GT},
+  doi           = {10.48550/arXiv.2310.10826},
+  url           = {https://arxiv.org/abs/2310.10826},
+  note          = {verified 2026-11-06}
+}
+
+@article{phelps2023models,
+  author        = {Phelps, Steve and Ranson, Rebecca},
+  title         = {{Of Models and Tin Men: A Behavioural Economics Study of Principal-Agent Problems in AI Alignment using Large-Language Models}},
+  journal       = {arXiv preprint arXiv:2307.11137},
+  year          = {2023},
+  eprint        = {2307.11137},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2307.11137},
+  url           = {https://arxiv.org/abs/2307.11137},
+  note          = {verified 2026-11-06}
+}
+
+@article{gabison2025liability,
+  author        = {Gabison, Garry A. and Xian, R. Patrick},
+  title         = {{Inherent and emergent liability issues in LLM-based agentic systems: a principal-agent perspective}},
+  journal       = {arXiv preprint arXiv:2504.03255},
+  year          = {2025},
+  eprint        = {2504.03255},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CY},
+  doi           = {10.48550/arXiv.2504.03255},
+  url           = {https://arxiv.org/abs/2504.03255},
+  note          = {verified 2026-11-06}
+}
+
+@article{saig2024incentivizing,
+  author        = {Saig, Eden and Einav, Ohad and Talgam-Cohen, Inbal},
+  title         = {{Incentivizing Quality Text Generation via Statistical Contracts}},
+  journal       = {arXiv preprint arXiv:2406.11118},
+  year          = {2024},
+  eprint        = {2406.11118},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GT},
+  doi           = {10.48550/arXiv.2406.11118},
+  url           = {https://arxiv.org/abs/2406.11118},
+  note          = {verified 2026-11-06}
+}
+
+@article{sreenivas2026contracting,
+  author        = {Sreenivas, Nanda Kishore and Larson, Kate},
+  title         = {{Contracting for LLM Delegation: Moral Hazard in Technology and Effort Choice}},
+  journal       = {arXiv preprint arXiv:2608.18232},
+  year          = {2026},
+  eprint        = {2608.18232},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.MA},
+  doi           = {10.48550/arXiv.2608.18232},
+  url           = {https://arxiv.org/abs/2608.18232},
+  note          = {verified 2026-11-06}
+}
+
+@article{velasevic2026anytime,
+  author        = {Velasevic, Boris and Saig, Eden and Mazumdar, Eric},
+  title         = {{Anytime Contracts for AI Services}},
+  journal       = {arXiv preprint arXiv:2610.22781},
+  year          = {2026},
+  eprint        = {2610.22781},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.GT},
+  doi           = {10.48550/arXiv.2610.22781},
+  url           = {https://arxiv.org/abs/2610.22781},
+  note          = {verified 2026-11-06}
+}
+
+@article{wyse2026commitment,
+  author        = {Wyse, Tim and Bustos, Kaitlin and Volkova, Yulia and Kleiman-Weiner, Max},
+  title         = {{Commitment To Cooperation With Self-Negotiated Contracts}},
+  journal       = {arXiv preprint arXiv:2607.22750},
+  year          = {2026},
+  eprint        = {2607.22750},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2607.22750},
+  url           = {https://arxiv.org/abs/2607.22750},
+  note          = {verified 2026-11-06}
+}
+
+@article{liu2025humans,
+  author        = {Liu, Shang and Wang, Hanzhao and Ma, Zhongyao and Li, Xiaocheng},
+  title         = {{How Humans Help LLMs: Assessing and Incentivizing Human Preference Annotators}},
+  journal       = {arXiv preprint arXiv:2502.06387},
+  year          = {2025},
+  eprint        = {2502.06387},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2502.06387},
+  url           = {https://arxiv.org/abs/2502.06387},
+  note          = {verified 2026-11-06}
+}
+
+@article{rauba2026multiagent,
+  author        = {Rauba, Paulius and Cepenas, Simonas and Schaar, Mihaela van der},
+  title         = {{Multi-Agent Systems Should be Treated as Principal-Agent Problems}},
+  journal       = {arXiv preprint arXiv:2601.23211},
+  year          = {2026},
+  eprint        = {2601.23211},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.MA},
+  doi           = {10.48550/arXiv.2601.23211},
+  url           = {https://arxiv.org/abs/2601.23211},
+  note          = {verified 2026-11-06}
+}
+
+@article{agarwal2026alignment,
+  author        = {Agarwal, Rohit and Lin, Joshua and Braverman, Mark and Hazan, Elad},
+  title         = {{AI Alignment via Incentives and Correction}},
+  journal       = {arXiv preprint arXiv:2605.01643},
+  year          = {2026},
+  eprint        = {2605.01643},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2605.01643},
+  url           = {https://arxiv.org/abs/2605.01643},
+  note          = {verified 2026-11-06}
+}
+
+@article{zhu2026align,
+  author        = {Zhu, Tong and Chen, Baiting and Zhou, Jin and Zhou, Hua and Sankararaman, Sriram and Dai, Xiaowu},
+  title         = {{ALIGN: Aligned Delegation with Performance Guarantees for Multi-Agent LLM Reasoning}},
+  journal       = {arXiv preprint arXiv:2602.00127},
+  year          = {2026},
+  eprint        = {2602.00127},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2602.00127},
+  url           = {https://arxiv.org/abs/2602.00127},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+% B. Test-time compute, routing and the cost-quality trade-off
+%% =====================================================================
+
+@article{snell2024scaling,
+  author        = {Snell, Charlie and Lee, Jaehoon and Xu, Kelvin and Kumar, Aviral},
+  title         = {{Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters}},
+  journal       = {arXiv preprint arXiv:2408.03314},
+  year          = {2024},
+  eprint        = {2408.03314},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2408.03314},
+  url           = {https://arxiv.org/abs/2408.03314},
+  note          = {verified 2026-11-06}
+}
+
+@article{muennighoff2025s1,
+  author        = {Muennighoff, Niklas and Yang, Zitong and Shi, Weijia and Li, Xiang Lisa and Fei-Fei, Li and Hajishirzi, Hannaneh and Zettlemoyer, Luke and Liang, Percy and Candès, Emmanuel and Hashimoto, Tatsunori},
+  title         = {{s1: Simple test-time scaling}},
+  journal       = {arXiv preprint arXiv:2501.19393},
+  year          = {2025},
+  eprint        = {2501.19393},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2501.19393},
+  url           = {https://arxiv.org/abs/2501.19393},
+  note          = {verified 2026-11-06}
+}
+
+@article{wei2022chain,
+  author        = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed and Le, Quoc and Zhou, Denny},
+  title         = {{Chain-of-Thought Prompting Elicits Reasoning in Large Language Models}},
+  journal       = {arXiv preprint arXiv:2201.11903},
+  year          = {2022},
+  eprint        = {2201.11903},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2201.11903},
+  url           = {https://arxiv.org/abs/2201.11903},
+  note          = {verified 2026-11-06}
+}
+
+@article{wang2022self,
+  author        = {Wang, Xuezhi and Wei, Jason and Schuurmans, Dale and Le, Quoc and Chi, Ed and Narang, Sharan and Chowdhery, Aakanksha and Zhou, Denny},
+  title         = {{Self-Consistency Improves Chain of Thought Reasoning in Language Models}},
+  journal       = {arXiv preprint arXiv:2203.11171},
+  year          = {2022},
+  eprint        = {2203.11171},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2203.11171},
+  url           = {https://arxiv.org/abs/2203.11171},
+  note          = {verified 2026-11-06}
+}
+
+@article{brown2024large,
+  author        = {Brown, Bradley and Juravsky, Jordan and Ehrlich, Ryan and Clark, Ronald and Le, Quoc V. and Ré, Christopher and Mirhoseini, Azalia},
+  title         = {{Large Language Monkeys: Scaling Inference Compute with Repeated Sampling}},
+  journal       = {arXiv preprint arXiv:2407.21787},
+  year          = {2024},
+  eprint        = {2407.21787},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2407.21787},
+  url           = {https://arxiv.org/abs/2407.21787},
+  note          = {verified 2026-11-06}
+}
+
+@article{shojaee2025illusion,
+  author        = {Shojaee, Parshin and Mirzadeh, Iman and Alizadeh, Keivan and Horton, Maxwell and Bengio, Samy and Farajtabar, Mehrdad},
+  title         = {{The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity}},
+  journal       = {arXiv preprint arXiv:2506.06941},
+  year          = {2025},
+  eprint        = {2506.06941},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2506.06941},
+  url           = {https://arxiv.org/abs/2506.06941},
+  note          = {verified 2026-11-06}
+}
+
+@article{chen2023frugalgpt,
+  author        = {Chen, Lingjiao and Zaharia, Matei and Zou, James},
+  title         = {{FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance}},
+  journal       = {arXiv preprint arXiv:2305.05176},
+  year          = {2023},
+  eprint        = {2305.05176},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2305.05176},
+  url           = {https://arxiv.org/abs/2305.05176},
+  note          = {verified 2026-11-06}
+}
+
+@article{ong2024routellm,
+  author        = {Ong, Isaac and Almahairi, Amjad and Wu, Vincent and Chiang, Wei-Lin and Wu, Tianhao and Gonzalez, Joseph E. and Kadous, M Waleed and Stoica, Ion},
+  title         = {{RouteLLM: Learning to Route LLMs with Preference Data}},
+  journal       = {arXiv preprint arXiv:2406.18665},
+  year          = {2024},
+  eprint        = {2406.18665},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2406.18665},
+  url           = {https://arxiv.org/abs/2406.18665},
+  note          = {verified 2026-11-06}
+}
+
+@article{ding2024hybrid,
+  author        = {Ding, Dujian and Mallick, Ankur and Wang, Chi and Sim, Robert and Mukherjee, Subhabrata and Ruhle, Victor and Lakshmanan, Laks V. S. and Awadallah, Ahmed Hassan},
+  title         = {{Hybrid LLM: Cost-Efficient and Quality-Aware Query Routing}},
+  journal       = {arXiv preprint arXiv:2404.14618},
+  year          = {2024},
+  eprint        = {2404.14618},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2404.14618},
+  url           = {https://arxiv.org/abs/2404.14618},
+  note          = {verified 2026-11-06}
+}
+
+@article{hu2024routerbench,
+  author        = {Hu, Qitian Jason and Bieker, Jacob and Li, Xiuyu and Jiang, Nan and Keigwin, Benjamin and Ranganath, Gaurav and Keutzer, Kurt and Upadhyay, Shriyash Kaustubh},
+  title         = {{RouterBench: A Benchmark for Multi-LLM Routing System}},
+  journal       = {arXiv preprint arXiv:2403.12031},
+  year          = {2024},
+  eprint        = {2403.12031},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2403.12031},
+  url           = {https://arxiv.org/abs/2403.12031},
+  note          = {verified 2026-11-06}
+}
+
+@article{zellinger2025costsaving,
+  author        = {Zellinger, Michael J. and Liu, Rex and Thomson, Matt},
+  title         = {{Cost-Saving LLM Cascades with Early Abstention}},
+  journal       = {arXiv preprint arXiv:2502.09054},
+  year          = {2025},
+  eprint        = {2502.09054},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2502.09054},
+  url           = {https://arxiv.org/abs/2502.09054},
+  note          = {verified 2026-11-06}
+}
+
+@article{erol2025costofpass,
+  author        = {Erol, Mehmet Hamza and El, Batu and Suzgun, Mirac and Yuksekgonul, Mert and Zou, James},
+  title         = {{Cost-of-Pass: An Economic Framework for Evaluating Language Models}},
+  journal       = {arXiv preprint arXiv:2504.13359},
+  year          = {2025},
+  eprint        = {2504.13359},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2504.13359},
+  url           = {https://arxiv.org/abs/2504.13359},
+  note          = {verified 2026-11-06}
+}
+
+@article{chen2025reasoning,
+  author        = {Chen, Yanda and Benton, Joe and Radhakrishnan, Ansh and Uesato, Jonathan and Denison, Carson and Schulman, John and Somani, Arushi and Hase, Peter and Wagner, Misha and Roger, Fabien and Mikulik, Vlad and Bowman, Samuel R. and Leike, Jan and Kaplan, Jared and Perez, Ethan},
+  title         = {{Reasoning Models Don't Always Say What They Think}},
+  journal       = {arXiv preprint arXiv:2505.05410},
+  year          = {2025},
+  eprint        = {2505.05410},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2505.05410},
+  url           = {https://arxiv.org/abs/2505.05410},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+% C. Long-horizon, memory-bearing and personal agents
+%% =====================================================================
+
+@article{yao2022react,
+  author        = {Yao, Shunyu and Zhao, Jeffrey and Yu, Dian and Du, Nan and Shafran, Izhak and Narasimhan, Karthik and Cao, Yuan},
+  title         = {{ReAct: Synergizing Reasoning and Acting in Language Models}},
+  journal       = {arXiv preprint arXiv:2210.03629},
+  year          = {2022},
+  eprint        = {2210.03629},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2210.03629},
+  url           = {https://arxiv.org/abs/2210.03629},
+  note          = {verified 2026-11-06}
+}
+
+@article{shinn2023reflexion,
+  author        = {Shinn, Noah and Cassano, Federico and Berman, Edward and Gopinath, Ashwin and Narasimhan, Karthik and Yao, Shunyu},
+  title         = {{Reflexion: Language Agents with Verbal Reinforcement Learning}},
+  journal       = {arXiv preprint arXiv:2303.11366},
+  year          = {2023},
+  eprint        = {2303.11366},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2303.11366},
+  url           = {https://arxiv.org/abs/2303.11366},
+  note          = {verified 2026-11-06}
+}
+
+@article{park2023generative,
+  author        = {Park, Joon Sung and O'Brien, Joseph C. and Cai, Carrie J. and Morris, Meredith Ringel and Liang, Percy and Bernstein, Michael S.},
+  title         = {{Generative Agents: Interactive Simulacra of Human Behavior}},
+  journal       = {arXiv preprint arXiv:2304.03442},
+  year          = {2023},
+  eprint        = {2304.03442},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  doi           = {10.48550/arXiv.2304.03442},
+  url           = {https://arxiv.org/abs/2304.03442},
+  note          = {verified 2026-11-06}
+}
+
+@article{wang2023voyager,
+  author        = {Wang, Guanzhi and Xie, Yuqi and Jiang, Yunfan and Mandlekar, Ajay and Xiao, Chaowei and Zhu, Yuke and Fan, Linxi and Anandkumar, Anima},
+  title         = {{Voyager: An Open-Ended Embodied Agent with Large Language Models}},
+  journal       = {arXiv preprint arXiv:2305.16291},
+  year          = {2023},
+  eprint        = {2305.16291},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2305.16291},
+  url           = {https://arxiv.org/abs/2305.16291},
+  note          = {verified 2026-11-06}
+}
+
+@article{packer2023memgpt,
+  author        = {Packer, Charles and Wooders, Sarah and Lin, Kevin and Fang, Vivian and Patil, Shishir G. and Stoica, Ion and Gonzalez, Joseph E.},
+  title         = {{MemGPT: Towards LLMs as Operating Systems}},
+  journal       = {arXiv preprint arXiv:2310.08560},
+  year          = {2023},
+  eprint        = {2310.08560},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2310.08560},
+  url           = {https://arxiv.org/abs/2310.08560},
+  note          = {verified 2026-11-06}
+}
+
+@article{zhong2023memorybank,
+  author        = {Zhong, Wanjun and Guo, Lianghong and Gao, Qiqi and Ye, He and Wang, Yanlin},
+  title         = {{MemoryBank: Enhancing Large Language Models with Long-Term Memory}},
+  journal       = {arXiv preprint arXiv:2305.10250},
+  year          = {2023},
+  eprint        = {2305.10250},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2305.10250},
+  url           = {https://arxiv.org/abs/2305.10250},
+  note          = {verified 2026-11-06}
+}
+
+@article{sumers2023cognitive,
+  author        = {Sumers, Theodore R. and Yao, Shunyu and Narasimhan, Karthik and Griffiths, Thomas L.},
+  title         = {{Cognitive Architectures for Language Agents}},
+  journal       = {arXiv preprint arXiv:2309.02427},
+  year          = {2023},
+  eprint        = {2309.02427},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2309.02427},
+  url           = {https://arxiv.org/abs/2309.02427},
+  note          = {verified 2026-11-06}
+}
+
+@article{li2024personal,
+  author        = {Li, Yuanchun and Wen, Hao and Wang, Weijun and Li, Xiangyu and Yuan, Yizhen and Liu, Guohong and Liu, Jiacheng and Xu, Wenxing and Wang, Xiang and Sun, Yi and Kong, Rui and Wang, Yile and Geng, Hanfei and Luan, Jian and Jin, Xuefeng and Ye, Zilong and Xiong, Guanjing and Zhang, Fan and Li, Xiang and Xu, Mengwei and Li, Zhijun and Li, Peng and Liu, Yang and Zhang, Ya-Qin and Liu, Yunxin},
+  title         = {{Personal LLM Agents: Insights and Survey about the Capability, Efficiency and Security}},
+  journal       = {arXiv preprint arXiv:2401.05459},
+  year          = {2024},
+  eprint        = {2401.05459},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  doi           = {10.48550/arXiv.2401.05459},
+  url           = {https://arxiv.org/abs/2401.05459},
+  note          = {verified 2026-11-06}
+}
+
+@article{zhang2024survey,
+  author        = {Zhang, Zeyu and Bo, Xiaohe and Ma, Chen and Li, Rui and Chen, Xu and Dai, Quanyu and Zhu, Jieming and Dong, Zhenhua and Wen, Ji-Rong},
+  title         = {{A Survey on the Memory Mechanism of Large Language Model based Agents}},
+  journal       = {arXiv preprint arXiv:2404.13501},
+  year          = {2024},
+  eprint        = {2404.13501},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2404.13501},
+  url           = {https://arxiv.org/abs/2404.13501},
+  note          = {verified 2026-11-06}
+}
+
+@article{maharana2024evaluating,
+  author        = {Maharana, Adyasha and Lee, Dong-Ho and Tulyakov, Sergey and Bansal, Mohit and Barbieri, Francesco and Fang, Yuwei},
+  title         = {{Evaluating Very Long-Term Conversational Memory of LLM Agents}},
+  journal       = {arXiv preprint arXiv:2402.17753},
+  year          = {2024},
+  eprint        = {2402.17753},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2402.17753},
+  url           = {https://arxiv.org/abs/2402.17753},
+  note          = {verified 2026-11-06}
+}
+
+@article{hong2023metagpt,
+  author        = {Hong, Sirui and Zhuge, Mingchen and Chen, Jiaqi and Zheng, Xiawu and Cheng, Yuheng and Zhang, Ceyao and Wang, Jinlin and Wang, Zili and Yau, Steven Ka Shing and Lin, Zijuan and Zhou, Liyang and Ran, Chenyu and Xiao, Lingfeng and Wu, Chenglin and Schmidhuber, Jürgen},
+  title         = {{MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework}},
+  journal       = {arXiv preprint arXiv:2308.00352},
+  year          = {2023},
+  eprint        = {2308.00352},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2308.00352},
+  url           = {https://arxiv.org/abs/2308.00352},
+  note          = {verified 2026-11-06}
+}
+
+@article{qian2023chatdev,
+  author        = {Qian, Chen and Liu, Wei and Liu, Hongzhang and Chen, Nuo and Dang, Yufan and Li, Jiahao and Yang, Cheng and Chen, Weize and Su, Yusheng and Cong, Xin and Xu, Juyuan and Li, Dahai and Liu, Zhiyuan and Sun, Maosong},
+  title         = {{ChatDev: Communicative Agents for Software Development}},
+  journal       = {arXiv preprint arXiv:2307.07924},
+  year          = {2023},
+  eprint        = {2307.07924},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE},
+  doi           = {10.48550/arXiv.2307.07924},
+  url           = {https://arxiv.org/abs/2307.07924},
+  note          = {verified 2026-11-06}
+}
+
+@article{xu2024theagentcompany,
+  author        = {Xu, Frank F. and Song, Yufan and Li, Boxuan and Tang, Yuxuan and Jain, Kritanjali and Bao, Mengxue and Wang, Zora Z. and Zhou, Xuhui and Guo, Zhitong and Cao, Murong and Yang, Mingyang and Lu, Hao Yang and Martin, Amaad and Su, Zhe and Maben, Leander and Mehta, Raj and Chi, Wayne and Jang, Lawrence and Xie, Yiqing and Zhou, Shuyan and Neubig, Graham},
+  title         = {{TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks}},
+  journal       = {arXiv preprint arXiv:2412.14161},
+  year          = {2024},
+  eprint        = {2412.14161},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2412.14161},
+  url           = {https://arxiv.org/abs/2412.14161},
+  note          = {verified 2026-11-06}
+}
+
+@article{lu2024ai,
+  author        = {Lu, Chris and Lu, Cong and Lange, Robert Tjarko and Foerster, Jakob and Clune, Jeff and Ha, David},
+  title         = {{The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery}},
+  journal       = {arXiv preprint arXiv:2408.06292},
+  year          = {2024},
+  eprint        = {2408.06292},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2408.06292},
+  url           = {https://arxiv.org/abs/2408.06292},
+  note          = {verified 2026-11-06}
+}
+
+@article{zhuge2024agent,
+  author        = {Zhuge, Mingchen and Zhao, Changsheng and Ashley, Dylan and Wang, Wenyi and Khizbullin, Dmitrii and Xiong, Yunyang and Liu, Zechun and Chang, Ernie and Krishnamoorthi, Raghuraman and Tian, Yuandong and Shi, Yangyang and Chandra, Vikas and Schmidhuber, Jürgen},
+  title         = {{Agent-as-a-Judge: Evaluate Agents with Agents}},
+  journal       = {arXiv preprint arXiv:2410.10934},
+  year          = {2024},
+  eprint        = {2410.10934},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2410.10934},
+  url           = {https://arxiv.org/abs/2410.10934},
+  note          = {verified 2026-11-06}
+}
+
+@article{park2024llm,
+  author        = {Park, Joon Sung and Zou, Carolyn Q. and Kamphorst, Jonne and Egan, Niles and Shaw, Aaron and Hill, Benjamin Mako and Cai, Carrie and Morris, Meredith Ringel and Liang, Percy and Willer, Robb and Bernstein, Michael S.},
+  title         = {{LLM Agents Grounded in Self-Reports Enable General-Purpose Simulation of Individuals}},
+  journal       = {arXiv preprint arXiv:2411.10109},
+  year          = {2024},
+  eprint        = {2411.10109},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2411.10109},
+  url           = {https://arxiv.org/abs/2411.10109},
+  note          = {verified 2026-11-06}
+}
+
+@article{hu2025memory,
+  author        = {Hu, Yuyang and Liu, Shichun and Yue, Yanwei and Zhang, Guibin and Liu, Boyang and Zhu, Fangyi and Lin, Jiahang and Guo, Honglin and Dou, Shihan and Xi, Zhiheng and Jin, Senjie and Tan, Jiejun and Yin, Yanbin and Liu, Jiongnan and Zhang, Zeyu and Sun, Zhongxiang and Zhu, Yutao and Sun, Hao and Peng, Boci and Cheng, Zhenrong and Fan, Xuanbo and Guo, Jiaxin and Yu, Xinlei and Zhou, Zhenhong and Hu, Zewen and Huo, Jiahao and Wang, Junhao and Niu, Yuwei and Wang, Yu and Yin, Zhenfei and Hu, Xiaobin and Liao, Yue and Li, Qiankun and Wang, Kun and Zhou, Wangchunshu and Liu, Yixin and Cheng, Dawei and Zhang, Qi and Gui, Tao and Pan, Shirui and Zhang, Yan and Torr, Philip and Dou, Zhicheng and Wen, Ji-Rong and Huang, Xuanjing and Jiang, Yu-Gang and Yan, Shuicheng},
+  title         = {{Memory in the Age of AI Agents}},
+  journal       = {arXiv preprint arXiv:2512.13564},
+  year          = {2025},
+  eprint        = {2512.13564},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2512.13564},
+  url           = {https://arxiv.org/abs/2512.13564},
+  note          = {verified 2026-11-06}
+}
+
+@article{jiang2025adaptation,
+  author        = {Jiang, Pengcheng and Lin, Jiacheng and Shi, Zhiyi and Wang, Zifeng and He, Luxi and Wu, Yichen and Zhong, Ming and Song, Peiyang and Zhang, Qizheng and Wang, Heng and Xu, Xueqiang and Xu, Hanwen and Han, Pengrui and Zhang, Dylan and Sun, Jiashuo and Yang, Chaoqi and Qian, Kun and Wang, Tian and Hu, Changran and Li, Manling and Li, Quanzheng and Peng, Hao and Wang, Sheng and Shang, Jingbo and Zhang, Chao and You, Jiaxuan and Liu, Liyuan and Lu, Pan and Zhang, Yu and Ji, Heng and Choi, Yejin and Song, Dawn and Sun, Jimeng and Han, Jiawei},
+  title         = {{Adaptation of Agentic AI: A Survey of Post-Training, Memory, and Skills}},
+  journal       = {arXiv preprint arXiv:2512.16301},
+  year          = {2025},
+  eprint        = {2512.16301},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2512.16301},
+  url           = {https://arxiv.org/abs/2512.16301},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+% D. Motivation theory and LLM persona/motivation effects
+%% =====================================================================
+
+@article{li2023emotionprompt,
+  author        = {Li, Cheng and Wang, Jindong and Zhang, Yixuan and Zhu, Kaijie and Hou, Wenxin and Lian, Jianxun and Luo, Fang and Yang, Qiang and Xie, Xing},
+  title         = {{Large Language Models Understand and Can be Enhanced by Emotional Stimuli}},
+  journal       = {arXiv preprint arXiv:2307.11760},
+  year          = {2023},
+  eprint        = {2307.11760},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2307.11760},
+  url           = {https://arxiv.org/abs/2307.11760},
+  note          = {verified 2026-11-06}
+}
+
+@article{sharma2023towards,
+  author        = {Sharma, Mrinank and Tong, Meg and Korbak, Tomasz and Duvenaud, David and Askell, Amanda and Bowman, Samuel R. and Cheng, Newton and Durmus, Esin and Hatfield-Dodds, Zac and Johnston, Scott R. and Kravec, Shauna and Maxwell, Timothy and McCandlish, Sam and Ndousse, Kamal and Rausch, Oliver and Schiefer, Nicholas and Yan, Da and Zhang, Miranda and Perez, Ethan},
+  title         = {{Towards Understanding Sycophancy in Language Models}},
+  journal       = {arXiv preprint arXiv:2310.13548},
+  year          = {2023},
+  eprint        = {2310.13548},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2310.13548},
+  url           = {https://arxiv.org/abs/2310.13548},
+  note          = {verified 2026-11-06}
+}
+
+@article{tseng2024helpful,
+  author        = {Zheng, Mingqian and Pei, Jiaxin and Logeswaran, Lajanugen and Lee, Moontae and Jurgens, David},
+  title         = {{When "A Helpful Assistant" Is Not Really Helpful: Personas in System Prompts Do Not Improve Performances of Large Language Models}},
+  journal       = {arXiv preprint arXiv:2311.10054},
+  year          = {2023},
+  eprint        = {2311.10054},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2311.10054},
+  url           = {https://arxiv.org/abs/2311.10054},
+  note          = {verified 2026-11-06}
+}
+
+@article{chen2024persona,
+  author        = {Chen, Jiangjie and Wang, Xintao and Xu, Rui and Yuan, Siyu and Zhang, Yikai and Shi, Wei and Xie, Jian and Li, Shuang and Yang, Ruihan and Zhu, Tinghui and Chen, Aili and Li, Nianqi and Chen, Lida and Hu, Caiyu and Wu, Siye and Ren, Scott and Fu, Ziquan and Xiao, Yanghua},
+  title         = {{From Persona to Personalization: A Survey on Role-Playing Language Agents}},
+  journal       = {arXiv preprint arXiv:2404.18231},
+  year          = {2024},
+  eprint        = {2404.18231},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2404.18231},
+  url           = {https://arxiv.org/abs/2404.18231},
+  note          = {verified 2026-11-06}
+}
+
+@article{shapira2026rlhf,
+  author        = {Shapira, Itai and Benade, Gerdus and Procaccia, Ariel D.},
+  title         = {{How RLHF Amplifies Sycophancy}},
+  journal       = {Proceedings of the 43rd International Conference on Machine Learning, PMLR 306:110417-110441, 2026},
+  year          = {2026},
+  eprint        = {2602.01002},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2602.01002},
+  url           = {https://arxiv.org/abs/2602.01002},
+  note          = {verified 2026-11-06}
+}
+
+@article{pathak2017curiosity,
+  author        = {Pathak, Deepak and Agrawal, Pulkit and Efros, Alexei A. and Darrell, Trevor},
+  title         = {{Curiosity-driven Exploration by Self-supervised Prediction}},
+  journal       = {arXiv preprint arXiv:1705.05363},
+  year          = {2017},
+  eprint        = {1705.05363},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.1705.05363},
+  url           = {https://arxiv.org/abs/1705.05363},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+% E. Agent benchmarks for calibrating the cost-quality curve
+%% =====================================================================
+
+@article{xie2024osworld,
+  author        = {Xie, Tianbao and Zhang, Danyang and Chen, Jixuan and Li, Xiaochuan and Zhao, Siheng and Cao, Ruisheng and Hua, Toh Jing and Cheng, Zhoujun and Shin, Dongchan and Lei, Fangyu and Liu, Yitao and Xu, Yiheng and Zhou, Shuyan and Savarese, Silvio and Xiong, Caiming and Zhong, Victor and Yu, Tao},
+  title         = {{OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments}},
+  journal       = {arXiv preprint arXiv:2404.07972},
+  year          = {2024},
+  eprint        = {2404.07972},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2404.07972},
+  url           = {https://arxiv.org/abs/2404.07972},
+  note          = {verified 2026-11-06}
+}
+
+@article{zhou2023webarena,
+  author        = {Zhou, Shuyan and Xu, Frank F. and Zhu, Hao and Zhou, Xuhui and Lo, Robert and Sridhar, Abishek and Cheng, Xianyi and Ou, Tianyue and Bisk, Yonatan and Fried, Daniel and Alon, Uri and Neubig, Graham},
+  title         = {{WebArena: A Realistic Web Environment for Building Autonomous Agents}},
+  journal       = {arXiv preprint arXiv:2307.13854},
+  year          = {2023},
+  eprint        = {2307.13854},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2307.13854},
+  url           = {https://arxiv.org/abs/2307.13854},
+  note          = {verified 2026-11-06}
+}
+
+@article{liu2023agentbench,
+  author        = {Liu, Xiao and Yu, Hao and Zhang, Hanchen and Xu, Yifan and Lei, Xuanyu and Lai, Hanyu and Gu, Yu and Ding, Hangliang and Men, Kaiwen and Yang, Kejuan and Zhang, Shudan and Deng, Xiang and Zeng, Aohan and Du, Zhengxiao and Zhang, Chenhui and Shen, Sheng and Zhang, Tianjun and Su, Yu and Sun, Huan and Huang, Minlie and Dong, Yuxiao and Tang, Jie},
+  title         = {{AgentBench: Evaluating LLMs as Agents}},
+  journal       = {arXiv preprint arXiv:2308.03688},
+  year          = {2023},
+  eprint        = {2308.03688},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2308.03688},
+  url           = {https://arxiv.org/abs/2308.03688},
+  note          = {verified 2026-11-06}
+}
+
+@article{yao2024taubench,
+  author        = {Yao, Shunyu and Shinn, Noah and Razavi, Pedram and Narasimhan, Karthik},
+  title         = {{$τ$-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains}},
+  journal       = {arXiv preprint arXiv:2406.12045},
+  year          = {2024},
+  eprint        = {2406.12045},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2406.12045},
+  url           = {https://arxiv.org/abs/2406.12045},
+  note          = {verified 2026-11-06}
+}
+
+@article{barres2025tau2,
+  author        = {Barres, Victor and Dong, Honghua and Ray, Soham and Si, Xujie and Narasimhan, Karthik},
+  title         = {{$τ^2$-Bench: Evaluating Conversational Agents in a Dual-Control Environment}},
+  journal       = {arXiv preprint arXiv:2506.07982},
+  year          = {2025},
+  eprint        = {2506.07982},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2506.07982},
+  url           = {https://arxiv.org/abs/2506.07982},
+  note          = {verified 2026-11-06}
+}
+
+@article{mialon2023gaia,
+  author        = {Mialon, Grégoire and Fourrier, Clémentine and Swift, Craig and Wolf, Thomas and LeCun, Yann and Scialom, Thomas},
+  title         = {{GAIA: a benchmark for General AI Assistants}},
+  journal       = {arXiv preprint arXiv:2311.12983},
+  year          = {2023},
+  eprint        = {2311.12983},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2311.12983},
+  url           = {https://arxiv.org/abs/2311.12983},
+  note          = {verified 2026-11-06}
+}
+
+@article{jimenez2023swebench,
+  author        = {Jimenez, Carlos E. and Yang, John and Wettig, Alexander and Yao, Shunyu and Pei, Kexin and Press, Ofir and Narasimhan, Karthik},
+  title         = {{SWE-bench: Can Language Models Resolve Real-World GitHub Issues?}},
+  journal       = {arXiv preprint arXiv:2310.06770},
+  year          = {2023},
+  eprint        = {2310.06770},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2310.06770},
+  url           = {https://arxiv.org/abs/2310.06770},
+  note          = {verified 2026-11-06}
+}
+
+@article{deng2023mind2web,
+  author        = {Deng, Xiang and Gu, Yu and Zheng, Boyuan and Chen, Shijie and Stevens, Samuel and Wang, Boshi and Sun, Huan and Su, Yu},
+  title         = {{Mind2Web: Towards a Generalist Agent for the Web}},
+  journal       = {arXiv preprint arXiv:2306.06070},
+  year          = {2023},
+  eprint        = {2306.06070},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2306.06070},
+  url           = {https://arxiv.org/abs/2306.06070},
+  note          = {verified 2026-11-06}
+}
+
+@article{chan2024mlebench,
+  author        = {Chan, Jun Shern and Chowdhury, Neil and Jaffe, Oliver and Aung, James and Sherburn, Dane and Mays, Evan and Starace, Giulio and Liu, Kevin and Maksin, Leon and Patwardhan, Tejal and Weng, Lilian and Mądry, Aleksander},
+  title         = {{MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering}},
+  journal       = {arXiv preprint arXiv:2410.07095},
+  year          = {2024},
+  eprint        = {2410.07095},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2410.07095},
+  url           = {https://arxiv.org/abs/2410.07095},
+  note          = {verified 2026-11-06}
+}
+
+@article{abhyankar2025osworldhuman,
+  author        = {Abhyankar, Reyna and Qi, Qi and Zhang, Yiying},
+  title         = {{OSWorld-Human: Benchmarking the Efficiency of Computer-Use Agents}},
+  journal       = {arXiv preprint arXiv:2506.16042},
+  year          = {2025},
+  eprint        = {2506.16042},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2506.16042},
+  url           = {https://arxiv.org/abs/2506.16042},
+  note          = {verified 2026-11-06}
+}
+
+@article{yuan2026osworld2,
+  author        = {Yuan, Mengqi and Zhou, Zilong and Xiong, Xinzhuang and Wu, Weiming and Sun, Jiayang and Song, Jiamin and Cui, Kaiqian and Wang, Bowen and Wu, Haoyuan and Li, Yitong and Lu, Dunjie and Lu, Haikong and Zhen, Qi and Wang, Xinyuan and Deng, Jiaqi and Yang, Yuhao and Chen, Cheng and Zheng, Boyuan and Su, Alex and Yu, Xiao and Zou, Hao and Agashe, Saaket and Lu, Xing Han and Kaur, Manpreet and Qi, Zhengyang and Chen, Vincent Sunn and Sala, Frederic and Liu, Dayiheng and Lin, Junyang and Yu, Zhou and Su, Yu and Reddy, Siva and Wang, Xin Eric and Qi, Peng and Xie, Tianbao and Yu, Tao},
+  title         = {{OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks}},
+  journal       = {arXiv preprint arXiv:2606.29537},
+  year          = {2026},
+  eprint        = {2606.29537},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2606.29537},
+  url           = {https://arxiv.org/abs/2606.29537},
+  note          = {verified 2026-11-06}
+}
+
+@article{gan2026auditing,
+  author        = {Gan, Chengguang and He, Zimeng and Tsujii, Yoshihiro and Kobayashi, Ken-ichiro and Itoh, Hiroki and Funakoshi, Kotaro},
+  title         = {{Auditing Web Agent Evaluation on WebArena-Lite: Human Review of Outcomes and Trajectories}},
+  journal       = {arXiv preprint arXiv:2610.01491},
+  year          = {2026},
+  eprint        = {2610.01491},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2610.01491},
+  url           = {https://arxiv.org/abs/2610.01491},
+  note          = {verified 2026-11-06}
+}
+
+@article{kapoor2025holistic,
+  author        = {Kapoor, Sayash and Stroebl, Benedikt and Kirgis, Peter and Nadgir, Nitya and Siegel, Zachary S and Wei, Boyi and Xue, Tianci and Chen, Ziru and Chen, Felix and Utpala, Saiteja and Ndzomga, Franck and Oruganty, Dheeraj and Luskin, Sophie and Liu, Kangheng and Yu, Botao and Arora, Amit and Hahm, Dongyoon and Trivedi, Harsh and Sun, Huan and Lee, Juyong and Jin, Tengjun and Mai, Yifan and Zhou, Yifei and Zhu, Yuxuan and Bommasani, Rishi and Kang, Daniel and Song, Dawn and Henderson, Peter and Su, Yu and Liang, Percy and Narayanan, Arvind},
+  title         = {{Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation}},
+  journal       = {arXiv preprint arXiv:2510.11977},
+  year          = {2025},
+  eprint        = {2510.11977},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2510.11977},
+  url           = {https://arxiv.org/abs/2510.11977},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+% F. Agent economies, markets and compensation (2025-2026)
+%% =====================================================================
+
+@article{zheng2020ai,
+  author        = {Zheng, Stephan and Trott, Alexander and Srinivasa, Sunil and Naik, Nikhil and Gruesbeck, Melvin and Parkes, David C. and Socher, Richard},
+  title         = {{The AI Economist: Improving Equality and Productivity with AI-Driven Tax Policies}},
+  journal       = {arXiv preprint arXiv:2004.13332},
+  year          = {2020},
+  eprint        = {2004.13332},
+  archivePrefix = {arXiv},
+  primaryClass  = {econ.GN},
+  doi           = {10.48550/arXiv.2004.13332},
+  url           = {https://arxiv.org/abs/2004.13332},
+  note          = {verified 2026-11-06}
+}
+
+@article{zheng2021ai,
+  author        = {Zheng, Stephan and Trott, Alexander and Srinivasa, Sunil and Parkes, David C. and Socher, Richard},
+  title         = {{The AI Economist: Optimal Economic Policy Design via Two-level Deep Reinforcement Learning}},
+  journal       = {arXiv preprint arXiv:2108.02755},
+  year          = {2021},
+  eprint        = {2108.02755},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  doi           = {10.48550/arXiv.2108.02755},
+  url           = {https://arxiv.org/abs/2108.02755},
+  note          = {verified 2026-11-06}
+}
+
+@article{li2023econagent,
+  author        = {Li, Nian and Gao, Chen and Li, Mingyu and Li, Yong and Liao, Qingmin},
+  title         = {{EconAgent: Large Language Model-Empowered Agents for Simulating Macroeconomic Activities}},
+  journal       = {arXiv preprint arXiv:2310.10436},
+  year          = {2023},
+  eprint        = {2310.10436},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2310.10436},
+  url           = {https://arxiv.org/abs/2310.10436},
+  note          = {verified 2026-11-06}
+}
+
+@article{qi2026economy,
+  author        = {Qi, Zhenting and Su, Huangyuan and Qu, Ao and Wang, Chenyu and Yao, Yu and Zheng, Han and Chattopadhyay, Kushal and Xu, Guowei and Wang, Zihan and Ye, Weirui and Reddi, Vijay Janapa and Li, Ju and Liang, Paul Pu and Lakkaraju, Himabindu and Kakade, Sham and Du, Yilun},
+  title         = {{Economy of Minds: Emerging Multi-Agent Intelligence with Economic Interactions}},
+  journal       = {arXiv preprint arXiv:2606.02859},
+  year          = {2026},
+  eprint        = {2606.02859},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2606.02859},
+  url           = {https://arxiv.org/abs/2606.02859},
+  note          = {verified 2026-11-06}
+}
+
+@article{liu2026markets,
+  author        = {Liu, Xiao and Li, Haoyang and Li, Songwei and Fang, Hongbo and Xu, Fengli and Shi, Feng and Evans, James},
+  title         = {{Markets, Not Planners: Decentralized Orchestration of LLM Agents with Private Information}},
+  journal       = {arXiv preprint arXiv:2608.23867},
+  year          = {2026},
+  eprint        = {2608.23867},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.MA},
+  doi           = {10.48550/arXiv.2608.23867},
+  url           = {https://arxiv.org/abs/2608.23867},
+  note          = {verified 2026-11-06}
+}
+
+@article{perera2026robust,
+  author        = {Perera, Srinath and Hapuarachchi, Kaviru and Leymann, Frank and Khalaf, Rania},
+  title         = {{Robust Agent Compensation (RAC): Teaching AI Agents to Compensate}},
+  journal       = {arXiv preprint arXiv:2605.03409},
+  year          = {2026},
+  eprint        = {2605.03409},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2605.03409},
+  url           = {https://arxiv.org/abs/2605.03409},
+  note          = {verified 2026-11-06}
+}
+
+@article{bhatt2025coalesce,
+  author        = {Bhatt, Manish and Rosario, Ronald F. Del and Narajala, Vineeth Sai and Habler, Idan},
+  title         = {{COALESCE: Economic and Security Dynamics of Skill-Based Task Outsourcing Among Team of Autonomous LLM Agents}},
+  journal       = {arXiv preprint arXiv:2506.01900},
+  year          = {2025},
+  eprint        = {2506.01900},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2506.01900},
+  url           = {https://arxiv.org/abs/2506.01900},
+  note          = {verified 2026-11-06}
+}
+
+@article{hu2025interagent,
+  author        = {Hu, Botao 'Amber' and Rong, Helena},
+  title         = {{Inter-Agent Trust Models: A Comparative Study of Brief, Claim, Proof, Stake, Reputation and Constraint in Agentic Web Protocol Design-A2A, AP2, ERC-8004, and Beyond}},
+  journal       = {arXiv preprint arXiv:2511.03434},
+  year          = {2025},
+  eprint        = {2511.03434},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.HC},
+  doi           = {10.48550/arXiv.2511.03434},
+  url           = {https://arxiv.org/abs/2511.03434},
+  note          = {verified 2026-11-06}
+}
+
+@article{sugiura2026coffeebench,
+  author        = {Sugiura, Issa and Hattori, Daichi and Araragi, Kazuo and Ogawa, Keita and Onose, Shota and Makino, Taro and Usuki, Teppei and Ishida, Takashi},
+  title         = {{CoffeeBench: Benchmarking Long-Horizon LLM Agents in Heterogeneous Multi-Agent Economies}},
+  journal       = {arXiv preprint arXiv:2606.16613},
+  year          = {2026},
+  eprint        = {2606.16613},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2606.16613},
+  url           = {https://arxiv.org/abs/2606.16613},
+  note          = {verified 2026-11-06}
+}
+
+@article{he2026global,
+  author        = {He, Yifan and Reusens, Manon and Goethals, Sofie and Martens, David},
+  title         = {{A Global View of How LLMs Value Human Time}},
+  journal       = {arXiv preprint arXiv:2610.18515},
+  year          = {2026},
+  eprint        = {2610.18515},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CY},
+  doi           = {10.48550/arXiv.2610.18515},
+  url           = {https://arxiv.org/abs/2610.18515},
+  note          = {verified 2026-11-06}
+}
+
+
+%% =====================================================================
+%% G. Foundational economics and psychology (non-arXiv; DOI/URL verified)
+%% =====================================================================
+
+@article{holmstrom1979moral,
+  author  = {Holmstr{\"o}m, Bengt R.},
+  title   = {{Moral Hazard and Observability}},
+  journal = {The Bell Journal of Economics},
+  volume  = {10},
+  number  = {1},
+  pages   = {74--91},
+  year    = {1979},
+  doi     = {10.2307/3003320},
+  url     = {https://doi.org/10.2307/3003320},
+  note    = {verified 2026-11-06}
+}
+
+@article{holmstrom1991multitask,
+  author  = {Holmstr{\"o}m, Bengt and Milgrom, Paul},
+  title   = {{Multitask Principal-Agent Analyses: Incentive Contracts, Asset Ownership, and Job Design}},
+  journal = {The Journal of Law, Economics, and Organization},
+  volume  = {7},
+  pages   = {24--52},
+  year    = {1991},
+  doi     = {10.1093/jleo/7.special_issue.24},
+  url     = {https://doi.org/10.1093/jleo/7.special_issue.24},
+  note    = {verified 2026-11-06}
+}
+
+@inproceedings{soares2015corrigibility,
+  author    = {Soares, Nate and Fallenstein, Benja and Yudkowsky, Eliezer and Armstrong, Stuart},
+  title     = {{Corrigibility}},
+  booktitle = {AAAI Workshop on AI and Ethics},
+  year      = {2015},
+  url       = {https://intelligence.org/files/Corrigibility.pdf},
+  note      = {verified 2026-11-06}
+}
+
+@article{maslow1943theory,
+  author  = {Maslow, Abraham H.},
+  title   = {{A Theory of Human Motivation}},
+  journal = {Psychological Review},
+  volume  = {50},
+  number  = {4},
+  pages   = {370--396},
+  year    = {1943},
+  doi     = {10.1037/h0054346},
+  url     = {https://doi.org/10.1037/h0054346},
+  note    = {verified 2026-11-06}
+}
+
+@book{deci1985intrinsic,
+  author    = {Deci, Edward L. and Ryan, Richard M.},
+  title     = {{Intrinsic Motivation and Self-Determination in Human Behavior}},
+  publisher = {Springer},
+  year      = {1985},
+  doi       = {10.1007/978-1-4899-2271-7},
+  url       = {https://doi.org/10.1007/978-1-4899-2271-7},
+  note      = {verified 2026-11-06}
+}
+
+@article{deci2000self,
+  author  = {Deci, Edward L. and Ryan, Richard M.},
+  title   = {{The ``What'' and ``Why'' of Goal Pursuits: Human Needs and the Self-Determination of Behavior}},
+  journal = {Psychological Inquiry},
+  volume  = {11},
+  number  = {4},
+  pages   = {227--268},
+  year    = {2000},
+  doi     = {10.1207/S15327965PLI1104_01},
+  url     = {https://doi.org/10.1207/S15327965PLI1104_01},
+  note    = {verified 2026-11-06}
+}
+
+@book{vroom1964work,
+  author    = {Vroom, Victor H.},
+  title     = {{Work and Motivation}},
+  publisher = {Wiley},
+  year      = {1964},
+  url       = {https://openlibrary.org/works/OL3497837W},
+  note      = {verified 2026-11-06}
+}
+
+@book{herzberg1959motivation,
+  author    = {Herzberg, Frederick and Mausner, Bernard and Snyderman, Barbara B.},
+  title     = {{The Motivation to Work}},
+  publisher = {Wiley},
+  year      = {1959},
+  url       = {https://openlibrary.org/works/OL19334288W},
+  note      = {verified 2026-11-06}
+}
+
+@inproceedings{klyubin2005empowerment,
+  author    = {Klyubin, Alexander S. and Polani, Daniel and Nehaniv, Chrystopher L.},
+  title     = {{Empowerment: A Universal Agent-Centric Measure of Control}},
+  booktitle = {IEEE Congress on Evolutionary Computation (CEC)},
+  pages     = {128--135},
+  year      = {2005},
+  doi       = {10.1109/CEC.2005.1554676},
+  url       = {https://doi.org/10.1109/CEC.2005.1554676},
+  note      = {verified 2026-11-06}
+}
+
+@misc{anthropic2024mcp,
+  author       = {{Anthropic}},
+  title        = {{Model Context Protocol Specification}},
+  year         = {2024},
+  howpublished = {Protocol specification},
+  url          = {https://modelcontextprotocol.io/specification/2025-06-18},
+  note         = {verified 2026-11-06}
+}
+
+@misc{google2025a2a,
+  author       = {{Google}},
+  title        = {{Agent2Agent (A2A) Protocol Specification}},
+  year         = {2025},
+  howpublished = {Protocol specification},
+  url          = {https://a2a-protocol.org/latest/specification/},
+  note         = {verified 2026-11-06}
+}
+
+@article{su2026incentive,
+  author        = {Su, Jipu},
+  title         = {{Incentive-Responsive Agents: A Principal-Agent Framework, Metric Suite, and Runtime Architecture for Long-Lived Personal AI Agents}},
+  journal       = {arXiv preprint arXiv:2611.15515},
+  year          = {2026},
+  eprint        = {2611.15515},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  doi           = {10.48550/arXiv.2611.15515},
+  url           = {https://arxiv.org/abs/2611.15515},
+  note          = {verified 2026-11-16}
+}
