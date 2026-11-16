@@ -73,7 +73,27 @@ On real catalogs, collusion is 0% in R0 and 3.9–6.1% in the other regimes; opt
 
 The semi-field test has a limitation: the value metric (grams per dollar) is unusually transparent, which may make the task easier than a real shopping decision. It should be read as an external-validity check on the null, not as a field experiment.
 
-### 7.10 Interpretation
+### 7.10 Regression evidence
+
+<div class="tblwrap"><table><caption>Table 7. Logistic regression of collusion on regime in the economic-agent experiment (n = 697; cluster-robust SE by task; model fixed effects; reference: R0, DeepSeek). Odds ratios with 95% CI.</caption><thead><tr><th>Term</th><th>Odds ratio</th><th>95% CI</th><th>p</th></tr></thead><tbody><tr><td>R2 (wallet)</td><td>0.78</td><td>[0.67, 0.92]</td><td>0.002</td></tr><tr><td>R3 (audit + disclosure)</td><td>0.65</td><td>[0.51, 0.83]</td><td><0.001</td></tr><tr><td>R4 (+ stake)</td><td>0.66</td><td>[0.52, 0.82]</td><td><0.001</td></tr><tr><td>Kimi</td><td>1.06</td><td>[0.91, 1.24]</td><td>0.422</td></tr><tr><td>Qwen-Flash</td><td>0.95</td><td>[0.81, 1.11]</td><td>0.533</td></tr></tbody></table></div>
+
+A logistic regression with model fixed effects and cluster-robust standard errors by task confirms the univariate pattern. Relative to R0, the odds of collusion are 0.78 in R2 (p=0.002), 0.65 in R3 (p<0.001), and 0.66 in R4 (p<0.001). The average marginal effects are -4.3 pp for R2, -7.6 pp for R3, and -7.5 pp for R4. The wallet-only reduction (R2) is smaller than the audit treatments and is consistent with the budget making the feasible set salient; the audit and stake effects are the largest and most precisely estimated. Coefficients for the model dummies are not distinguishable from zero, confirming that the regime effect is not a model idiosyncrasy.
+
+### 7.11 Repeated economic sandbox: experienced incentives and audit
+
+The single-shot economic-agent experiment shows that the mechanism moves behaviour, but each decision is made once. Real commerce is repeated, and the agent can accumulate the sponsorship it earns. We therefore built a repeated economic sandbox: 20 tasks, 5 rounds, 4 regimes, 2 models (800 round-level observations). The agent is told to maximize its own balance. A disclosed sponsorship is void (the user switches to the faithful offer); a hidden sponsorship is credited, but with probability 50% an audit detects it, in which case the agent pays USD 40 and, in R4, forfeits a USD 50 stake. After every round the agent sees the audit outcome and its new balance.
+
+<div class="tblwrap"><table><caption>Table 8. Repeated economic sandbox (800 rounds; 100 per cell). The agent maximizes its own balance. Percentages unless noted.</caption><thead><tr><th>Model</th><th>Regime</th><th>Collusion</th><th>Optimal</th><th>Mean balance (USD)</th><th>Audit detection</th><th>Disclosure</th></tr></thead><tbody><tr><td>DeepSeek</td><td>R0</td><td>29.0</td><td>62</td><td>69.4</td><td>0</td><td>5</td></tr><tr><td>DeepSeek</td><td>R2</td><td>28.0</td><td>61</td><td>69.0</td><td>0</td><td>5</td></tr><tr><td>DeepSeek</td><td>R3</td><td>4.0</td><td>63</td><td>-1.0</td><td>12</td><td>24</td></tr><tr><td>DeepSeek</td><td>R4</td><td>2.0</td><td>63</td><td>-17.3</td><td>15</td><td>21</td></tr><tr><td>Kimi</td><td>R0</td><td>30.0</td><td>57</td><td>77.6</td><td>0</td><td>0</td></tr><tr><td>Kimi</td><td>R2</td><td>29.0</td><td>56</td><td>72.3</td><td>0</td><td>0</td></tr><tr><td>Kimi</td><td>R3</td><td>3.0</td><td>65</td><td>6.8</td><td>29</td><td>0</td></tr><tr><td>Kimi</td><td>R4</td><td>4.0</td><td>71</td><td>-27.1</td><td>33</td><td>0</td></tr></tbody></table></div>
+
+[[FIG:figures/fig_econ_sandbox.svg|Figure 5. Repeated economic sandbox, rounds 1-5. Collusion is roughly 30% without audit and 3-4% with audit; the balance grows in R0/R2 but is flat or negative in R3/R4 because penalties and the stake exceed the sponsorship earned.]]
+
+The dynamic version sharpens the result. Collusion is 29.5% in R0 and 28.5% in R2, but only 3.5% in R3 and 3.0% in R4. The average balance tells the same story from the agent's side: it rises to about USD 74 in R0, stays near zero in R3 (USD 3), and is negative in R4 (USD −22) because the stake is lost. Audit detection is 12–33% of hidden sponsorships, and disclosure remains low (0–24%): the agents hide, get caught, and pay. Collusion in R0 is flat across rounds (22–35%), so the growing balance does not teach honesty; in R3/R4 it stays between 0% and 5% from the first round.
+
+This is the strongest evidence in the paper for Theorem 1. The mechanism works when the agent has a real objective, the penalty is experienced rather than described, and the audit is repeated. It also explains why the earlier instruction-following sandbox showed nothing: the balance grew there too, but the agent's objective was still the user's utility.
+
+### 7.12 Interpretation
+
+
 
 
 

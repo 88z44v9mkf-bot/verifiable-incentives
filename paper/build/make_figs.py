@@ -179,9 +179,49 @@ def econ():
     (FIG / "fig_econ.svg").write_text("".join(p), encoding="utf-8")
 
 
+def econ_sandbox():
+    s = json.loads((ROOT / "results" / "summary_econ_sandbox.json").read_text())
+    regs = ["R0", "R2", "R3", "R4"]
+    colors = {"R0": "#3d5a80", "R2": "#6b8e9f", "R3": "#c26a3a", "R4": "#8a4b2a"}
+    by = {(b["regime"], b["round"]): b for b in s["by_round"]}
+    W, H = 760, 320
+    pw, ph = 300, 190
+    panes = [(60, 70, "Collusion rate"), (460, 70, "Mean balance (USD)")]
+    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">', f'<rect width="{W}" height="{H}" fill="#fff"/>']
+    for (x0, y0, title), key, ymax in zip(panes, ["collusion", "balance"], [40.0, 140.0]):
+        p.append(f'<text x="{x0+pw/2}" y="{y0-22}" text-anchor="middle" font-family="{FONT}" font-size="12">{title}</text>')
+        p.append(f'<line x1="{x0}" y1="{y0+ph}" x2="{x0+pw}" y2="{y0+ph}" stroke="{INK}"/>')
+        p.append(f'<line x1="{x0}" y1="{y0}" x2="{x0}" y2="{y0+ph}" stroke="{INK}"/>')
+        for v in range(0, int(ymax)+1, int(ymax//4)):
+            yy = y0 + ph - v/ymax*ph
+            p.append(f'<text x="{x0-6}" y="{yy+4}" text-anchor="end" font-family="{FONT}" font-size="9.5" fill="{MUTED}">{v}{"%" if key=="collusion" else ""}</text>')
+        for rr in range(1, 6):
+            xx = x0 + (rr-0.5)/5*pw
+            p.append(f'<text x="{xx}" y="{y0+ph+16}" text-anchor="middle" font-family="{FONT}" font-size="10" fill="{MUTED}">{rr}</text>')
+        for reg in regs:
+            pts = []
+            for rr in range(1, 6):
+                b = by[(reg, rr)]
+                val = b["collusion"]*100 if key == "collusion" else b["balance"]
+                xx = x0 + (rr-0.5)/5*pw
+                yy = y0 + ph - val/ymax*ph
+                pts.append(f"{xx:.1f},{yy:.1f}")
+            p.append(f'<polyline points="{" ".join(pts)}" fill="none" stroke="{colors[reg]}" stroke-width="1.6"/>')
+            for pt in pts:
+                xx, yy = pt.split(",")
+                p.append(f'<circle cx="{xx}" cy="{yy}" r="2.2" fill="{colors[reg]}"/>')
+    for i, reg in enumerate(regs):
+        lx = 60 + i*70
+        p.append(f'<rect x="{lx}" y="{H-16}" width="10" height="7" fill="{colors[reg]}"/>')
+        p.append(f'<text x="{lx+14}" y="{H-10}" font-family="{FONT}" font-size="10">{reg}</text>')
+    p.append("</svg>")
+    (FIG / "fig_econ_sandbox.svg").write_text("".join(p), encoding="utf-8")
+
+
 if __name__ == "__main__":
     architecture()
     collusion()
     sandbox()
     econ()
+    econ_sandbox()
     print("figures written")
