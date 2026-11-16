@@ -79,3 +79,24 @@ The results are comparative statics in a stylized model. They establish directio
 ## Appendix C. Reproduction
 
 The repository is at <span class="code">https://github.com/88z44v9mkf-bot/verifiable-incentives</span> and contains <span class="code">experiments/commerce/tasks.py</span> (generator and prompts), <span class="code">experiments/commerce/runner.py</span> (model calls and scoring), <span class="code">experiments/commerce/analyze.py</span> (tables and figures), and <span class="code">results/run_all.jsonl</span> (all 600 single-shot runs) and <span class="code">experiments/commerce/sandbox.py</span> plus <span class="code">results/sandbox.jsonl</span> (the 800-round payment sandbox). Running the pipeline requires an OpenAI-compatible endpoint and the environment variable <span class="code">DASHSCOPE_API_KEY</span>. The high-pressure replication is reproduced with <span class="code">--pressure high --models deepseek-v4.1-flash-1017,kimi-k3.1-pro,qwen3.8-flash,glm-5.3</span>; the economic-agent experiment with <span class="code">experiments/commerce/econ_agent.py</span>; and the semi-field study with <span class="code">experiments/commerce/run_real.py</span> after caching the public catalogs under <span class="code">results/catalog/</span>. The exact commands are in <span class="code">README.md</span>.
+
+
+## Appendix D. Real-Money Sandbox
+
+The implementation lives in <span class="code">experiments/payments/</span>:
+
+- <span class="code">ledger.py</span>: double-entry ledger with accounts and idempotent transfers; invariants: total balance zero, non-negative restricted accounts, one charge per idempotency key.
+- <span class="code">backend.py</span>: <span class="code">MockBackend</span> and <span class="code">StripeBackend</span> (PaymentIntent REST; test or live). Live mode requires <span class="code">--confirm-live</span>.
+- <span class="code">merchant.py</span>: invoices from the public coffee catalogs used in Section 7.9.
+- <span class="code">sandbox_env.py</span>: deposit, pay, sponsor, audit, penalty, stake, receipt.
+- <span class="code">agent_loop.py</span>: LLM agent that emits <span class="code">pay</span> or <span class="code">refuse</span> actions; the environment validates merchant, amount, budget, and authority before the charge.
+- <span class="code">live_run.py</span>: driver with a spend cap; it refuses to run without <span class="code">--test-mode</span> or <span class="code">--live --confirm-live</span>.
+- <span class="code">selftest.py</span>: ledger invariants, idempotency, budget enforcement, audit.
+
+The dry run reported in Section 8.5 used <span class="code">MockBackend</span> and is reproduced with:
+
+<pre class="code">cd experiments/payments
+python3 selftest.py
+python3 agent_loop.py --out ../../results/payments_pilot.jsonl --tasks 6</pre>
+
+The design document with the full protocol, power calculation, ethics checklist, and live-mode controls is in <span class="code">experiments/payments/DESIGN.md</span>.

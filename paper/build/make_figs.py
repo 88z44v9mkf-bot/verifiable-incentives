@@ -218,10 +218,37 @@ def econ_sandbox():
     (FIG / "fig_econ_sandbox.svg").write_text("".join(p), encoding="utf-8")
 
 
+def payments():
+    W, H = 900, 430
+    p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}">',
+         '<defs><marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
+         f'<path d="M 0 0 L 10 5 L 0 10 z" fill="{MUTED}"/></marker></defs>',
+         f'<rect width="{W}" height="{H}" fill="#fff"/>']
+    p.append(box(30, 60, 150, 80, ["User budget", "(research funds)", "card top-up"], fs=11.5, bold=True))
+    p.append(box(230, 60, 170, 80, ["Wallet / ledger", "double-entry", "idempotent"], fs=11.5, bold=True))
+    p.append(box(450, 60, 150, 80, ["Agent runtime", "chooses offer"], fs=11.5, bold=True))
+    p.append(box(650, 60, 200, 80, ["Merchant invoice", "real catalog price"], fs=11.5, bold=True))
+    p.append(box(650, 220, 200, 80, ["Payment backend", "mock | Stripe test | live"], fs=11.5, bold=True))
+    p.append(box(450, 220, 150, 80, ["Audit + stake", "penalty if hidden"], fs=11.5, bold=True))
+    p.append(box(230, 220, 170, 80, ["Settlement", "charge id, receipt"], fs=11.5, bold=True))
+    p.append(f'<path d="M180,100 L230,100" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M400,100 L450,100" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M600,100 L650,100" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M750,140 L750,220" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M650,260 L600,260" fill="none" stroke="{MUTED}" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M450,260 L400,260" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M230,260 L200,260 L200,140" fill="none" stroke="{MUTED}" stroke-width="1.2" marker-end="url(#arr2)"/>')
+    p.append(f'<path d="M525,140 L525,220" fill="none" stroke="{MUTED}" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr2)"/>')
+    p.append(f'<text x="452" y="345" text-anchor="middle" font-family="{FONT}" font-size="11.5" fill="{MUTED}">Solid: purchase flow. Dashed: sponsorship and audit feedback. Live mode is gated by an explicit flag and a spend cap.</text>')
+    p.append("</svg>")
+    (FIG / "fig_payments.svg").write_text("".join(p), encoding="utf-8")
+
+
 if __name__ == "__main__":
     architecture()
     collusion()
     sandbox()
     econ()
     econ_sandbox()
+    payments()
     print("figures written")

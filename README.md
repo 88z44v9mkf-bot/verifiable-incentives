@@ -69,6 +69,12 @@ The **semi-field** condition (`experiments/commerce/run_real.py`, `real_tasks.py
 
 Full tables in `results/per_cell*.csv`, `results/summary*.json`, `results/summary_econ.json`, and `results/summary_real.json`. Headline: current models rarely collude even when hidden sponsorship is available; identity, wallet, and disclosure regimes produce small and regime-dependent changes. The paper reports these null and near-null results honestly and discusses why prompt-level incentives are weak instruments compared with protocol-level enforcement.
 
+## Real-money sandbox
+
+`experiments/payments/` implements a real-money sandbox for follow-up field work: a double-entry ledger with idempotent transfers, mock/Stripe-test/Stripe-live payment backends, merchant-funded sponsorship, audit penalties, and a stake. `live_run.py` refuses to run without `--test-mode` or `--live --confirm-live` and enforces a cumulative spend cap. `selftest.py` covers ledger invariants, budget enforcement, idempotency, and the audit path. The protocol, power calculation, ethics checklist, and live-mode controls are in `experiments/payments/DESIGN.md`.
+
+A mock dry run (48 trajectories: 6 tasks x 4 regimes x 2 models) settled 95.8% of decisions with all ledgers invariant; the two failures were model-output errors. **No live payment has been executed.** Live mode requires a Stripe key and institutional approval.
+
 ## License
 
 Code: MIT. Paper and results: CC BY 4.0.
