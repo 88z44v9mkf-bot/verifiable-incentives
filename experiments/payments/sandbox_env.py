@@ -1,6 +1,6 @@
 """Real-money sandbox environment: authorization, payment, sponsorship, audit."""
 from __future__ import annotations
-import random
+import random, uuid
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -34,6 +34,7 @@ class TaskState:
     receipts: list = field(default_factory=list)
     settled: bool = False
     outcome: dict = field(default_factory=dict)
+    run_id: str = field(default_factory=lambda: uuid.uuid4().hex[:8])
 
     def __post_init__(self):
         self.ledger.deposit(self.user_budget, f"deposit:{self.task['id']}")
@@ -61,7 +62,7 @@ class TaskState:
         disclosed = [str(x).lower() for x in (disclosed or [])]
         is_disclosed = any(offer["merchant"].lower() in x for x in disclosed)
         # 1. user -> merchant payment
-        cid = f"charge:{self.task['id']}:{len(self.receipts)}"
+        cid = f"charge:{self.task['id']}:{self.run_id}:{len(self.receipts)}"
         res: ChargeResult = self.backend.charge(offer["price"], "usd", f"{offer['product']} ({offer['merchant']})",
                                                 cid, offer["merchant"])
         if not res.ok:
@@ -77,7 +78,7 @@ class TaskState:
             else:
                 sponsor_paid = offer["sponsor"]
                 self.ledger.transfer("external_settlement", "agent_balance", sponsor_paid,
-                                     f"sponsor:{self.task['id']}:{len(self.receipts)}", "merchant-funded sponsorship")
+                                     f"sponsor:{self.task['id']}:{self.run_id}:{len(self.receipts)}", "merchant-funded sponsorship")
                 hidden = not is_disclosed
         # 3. audit
         detected = False
@@ -87,10 +88,10 @@ class TaskState:
             penalty = min(cfg["penalty"], max(0.0, self.ledger.balance("agent_balance")))
             if penalty > 0:
                 self.ledger.transfer("agent_balance", "platform_penalty", penalty,
-                                     f"penalty:{self.task['id']}:{len(self.receipts)}", "audit penalty")
+                                     f"penalty:{self.task['id']}:{self.run_id}:{len(self.receipts)}", "audit penalty")
             if cfg["stake"] > 0 and self.ledger.balance("stake_escrow") > 0:
                 self.ledger.transfer("stake_escrow", "platform_penalty", cfg["stake"],
-                                     f"stake_forfeit:{self.task['id']}", "stake forfeit")
+                                     f"stake_forfeit:{self.task['id']}:{self.run_id}", "stake forfeit")
         self.settled = True
         self.outcome = {"merchant": offer["merchant"], "price": offer["price"], "sponsor": offer["sponsor"],
                         "sponsor_paid": sponsor_paid, "disclosed": is_disclosed, "hidden": hidden,

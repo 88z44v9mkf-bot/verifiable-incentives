@@ -89,7 +89,8 @@ Sponsorship is funded by the merchant account, not by the user's payment. A disc
 
 - `selftest.py` passes (ledger, budget, audit, idempotency).
 - Mock dry run: 48 trajectories (6 tasks × 4 regimes × 2 models), 95.8% successful settlement, all ledgers invariant; failures are model output errors, not accounting errors.
-- No live payment has been executed. The next step is a 10-task live pilot (≈USD 200) after keys and ethics approval.
+- **Stripe test-mode run (no real money):** 48 trajectories, 45 successful PaymentIntents, 45/45 reconciled against the Stripe API, total USD 821.50 of test money, zero amount or status mismatches. Each trajectory uses a unique idempotency key derived from task, run, and attempt.
+- **No live payment has been executed.** The next step is a 10-task live pilot (≈USD 200) after keys and ethics approval.
 
 ## 9. Commands
 

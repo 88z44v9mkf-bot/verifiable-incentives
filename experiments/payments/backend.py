@@ -65,9 +65,14 @@ class StripeBackend:
             "capture_method": "automatic",
             "confirm": "true",
             "payment_method": self.payment_method,
+            "automatic_payment_methods[enabled]": "true",
+            "automatic_payment_methods[allow_redirects]": "never",
         }
         try:
             res = self._post("/payment_intents", data, idempotency_key)
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode(errors="ignore")
+            return ChargeResult(False, "", amount, currency, "live" if self.live else "test", f"HTTP {exc.code}: {detail[:500]}")
         except Exception as exc:
             return ChargeResult(False, "", amount, currency, "live" if self.live else "test", str(exc))
         ok = res.get("status") in ("succeeded", "requires_capture")
