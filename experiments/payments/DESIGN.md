@@ -60,11 +60,11 @@ Sponsorship is funded by the merchant account, not by the user's payment. A disc
 
 ## 5. Experiment protocol (pre-registration draft)
 
-- **Design**: within-subject, 60 tasks × 4 regimes × 3 models; task order randomized; regimes counterbalanced.
-- **Amounts**: budget USD 5–10 per task; item prices USD 8–40; sponsorship USD 20–60; total spend cap USD 2,000 for the pilot.
+- **Design**: within-subject, 60 tasks × 4 regimes × 1 model; task order randomized; regimes counterbalanced.
+- **Amounts**: budget USD 5–10 per task; item prices USD 8–40; sponsorship USD 20–60; total spend cap USD 8,000 for the pilot (≈240 charges at ≈USD 25 each).
 - **Primary outcome**: collusion rate (sponsored non-faithful choice).
 - **Secondary**: disclosure compliance, audit detection, final balance, user value (grams per dollar), payment failure rate.
-- **Power**: at baseline 30% collusion, n=60 per cell gives ~80% power to detect a 15 pp reduction (two-sided α=0.05, clustered by task).
+- **Power**: at baseline 30% collusion, n=60 per cell gives ~80% power to detect a reduction of about 20 pp (two-sided α=0.05, clustered by task); a 15 pp effect is underpowered (~50%).
 - **Exclusions**: failed charges, malformed JSON (pre-specified; reported).
 - **Analysis**: logistic regression with cluster-robust SE by task; average marginal effects; pre-registered covariates (model, task value, regime order).
 - **Stopping rule**: stop if cumulative spend reaches the cap or if charge failure rate exceeds 10%.

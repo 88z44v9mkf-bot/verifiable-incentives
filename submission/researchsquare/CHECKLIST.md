@@ -1,7 +1,7 @@
 # Research Square submission checklist
 
 1. Log in at https://www.researchsquare.com/login (use the Chrome window that shows **Jipu Su**, not a different profile).
-2. **Submit a Preprint** → upload `paper/main.pdf` (24 pages).
+2. **Submit a Preprint** → upload `paper/main.pdf` (25 pages).
 3. **Title:** paste from `metadata.md`.
 4. **Article type:** Research Article.
 5. **Area of study:** optional; skip if it blocks progress.

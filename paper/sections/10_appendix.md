@@ -52,7 +52,7 @@ By (A5), $m'(0)=0<\rho s/q^2$ and $m'(q)\to\infty$ as $q\to1$, so an interior so
 <div class="eq">∂<i>q</i><sup>*</sup>/∂<i>s</i> = ρ/(<i>q</i><sup>*2</sup>[<i>m</i>″+2ρ<i>s</i>/(<i>q</i><sup>*</sup>)<sup>3</sup>]) &gt; 0, &nbsp;&nbsp;(A10)</div>
 so the optimal audit intensity is increasing in the sponsorship at stake. From (A7), $\partial S^*/\partial q^*=-s/(q^*)^2<0$ and $\partial S^*/\partial F=-1<0$: the required stake falls as audit quality or penalty credibility rises. $\square$
 
-<b>Corollary (audit allocation across merchants).</b> With merchants $i$ and per-merchant audit intensities $q_i$, the principal solves $\min\sum_i[m(q_i)+\rho S_i]$ subject to $s_i(1-q_i)\le q_i(F+S_i)$ for all $i$. The Lagrangian is separable; at an interior optimum $m'(q_i)=\rho s_i/q_i^2+\mu_i s_i/q_i^2$, so audit effort is allocated first to merchants with the largest ratio $s_i/\Delta u_i$. This is the formal justification for the collusion monitor's prioritization rule.
+<b>Corollary (audit allocation across merchants).</b> With merchants $i$ and per-merchant audit intensities $q_i$, the principal solves $\min\sum_i[m(q_i)+\rho S_i]$ subject to $s_i(1-q_i)\le q_i(F+S_i)$ for all $i$. The Lagrangian is separable; at an interior optimum $m'(q_i)=\rho s_i/q_i^2+\mu_i s_i/q_i^2$. Hence audit effort is increasing in the sponsorship $s_i$, so merchants with larger side payments receive weakly more audit; if the principal also weights the user's loss $\Delta u_i$ from a distorted recommendation, the priority is proportional to $s_i\Delta u_i$. This is the formal justification for the collusion monitor's prioritization rule.
 
 ### A.4 Proposition 2 (nested delegation)
 
@@ -62,11 +62,11 @@ For the pass-through condition, work backward from the last layer. Layer $k$ par
 
 ### A.5 Corollary 2 (dynamic budget)
 
-The principal chooses a budget $B_t$ and the agent's feasible set is increasing in $B_t$ in the strong set order. The principal's objective $U(B_t,r_t)$ has increasing differences in $(B_t,r_t)$: a higher verified reputation raises the marginal return to a larger feasible set because the probability that the larger set is used well is higher. By Topkis' theorem, the optimal policy is monotone in $r_t$, hence a threshold rule. The threshold rises with risk aversion (the marginal cost of a bad purchase rises) and falls with task value (the marginal benefit of a larger feasible set rises). $\square$
+<i>Proof sketch.</i> The principal chooses a budget $B_t$ and the agent's feasible set is increasing in $B_t$ in the strong set order. The principal's objective $U(B_t,r_t)$ has increasing differences in $(B_t,r_t)$: a higher verified reputation raises the marginal return to a larger feasible set because the probability that the larger set is used well is higher. By Topkis' theorem, the optimal policy is monotone in $r_t$, hence a threshold rule. The threshold rises with risk aversion (the marginal cost of a bad purchase rises) and falls with task value (the marginal benefit of a larger feasible set rises). $\square$
 
 ### A.6 What is proved and what is assumed
 
-The results are comparative statics in a stylized model. They establish direction, not magnitude: verifiability lowers required incentives; audit and penalties bound hidden collusion; stakes substitute for monitoring; nested delegation dilutes alignment; budgets should respond to verified performance. The empirical benchmark tests the qualitative prediction that stronger verification/audit regimes weakly reduce collusion; as Section 7 reports, the data do not reject the null of no effect, which we interpret as evidence about the limits of prompt-level manipulation rather than as a refutation of the comparative statics (the regimes manipulate the prompt and the simulated balance, not the model's actual payoff function).
+The results are comparative statics in a stylized model. They establish direction, not magnitude: verifiability lowers required incentives; audit and penalties bound hidden collusion; stakes substitute for monitoring; nested delegation dilutes alignment; budgets should respond to verified performance. The empirical benchmark tests the qualitative prediction in two regimes. With instruction-following agents, the data do not reject the null of no effect; with economically motivated agents, the audit-and-penalty regime reduces collusion and the repeated sandbox shows the predicted direction with a larger effect. We interpret the difference as evidence about the limits of prompt-level manipulation rather than as a refutation of the comparative statics: the instruction-following regimes manipulate the prompt and the simulated balance, not the model's actual payoff function.
 
 ## Appendix B. Benchmark Details
 
@@ -83,7 +83,10 @@ The repository is at <span class="code">https://github.com/88z44v9mkf-bot/verifi
 
 ## Appendix D. Real-Money Sandbox
 
-The implementation lives in <span class="code">experiments/payments/</span>:
+The implementation lives in <span class="code">experiments/payments/</span>, and the payment flow is shown in Figure 6.
+
+[[FIG:figures/fig_payments.svg|Figure 6. Real-money sandbox. The user's budget flows through a double-entry ledger to a merchant invoice; the payment backend executes the charge; merchant-funded sponsorship credits the agent; the audit deducts penalties and forfeits the stake. Live mode is gated by an explicit flag and a spend cap; the released implementation defaults to a mock backend.]]
+
 
 - <span class="code">ledger.py</span>: double-entry ledger with accounts and idempotent transfers; invariants: total balance zero, non-negative restricted accounts, one charge per idempotency key.
 - <span class="code">backend.py</span>: <span class="code">MockBackend</span> and <span class="code">StripeBackend</span> (PaymentIntent REST; test or live). Live mode requires <span class="code">--confirm-live</span>.

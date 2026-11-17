@@ -6,7 +6,7 @@
 - **Corresponding emails:** jipu.su@geely.com; jeepsu@cityu.edu.hk
 - **Primary category:** cs.AI (Artificial Intelligence)
 - **Cross-list:** cs.MA (Multiagent Systems), cs.GT (Computer Science and Game Theory)
-- **Comments:** 24 pages, 8 tables, 6 figures. Code and data: https://github.com/88z44v9mkf-bot/verifiable-incentives
+- **Comments:** 25 pages, 8 tables, 6 figures. Code and data: https://github.com/88z44v9mkf-bot/verifiable-incentives
 - **License:** arXiv non-exclusive distribution license 1.0
 - **Journal reference:** none
 - **DOI:** none
