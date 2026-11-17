@@ -93,10 +93,14 @@ The implementation lives in <span class="code">experiments/payments/</span>:
 - <span class="code">live_run.py</span>: driver with a spend cap; it refuses to run without <span class="code">--test-mode</span> or <span class="code">--live --confirm-live</span>.
 - <span class="code">selftest.py</span>: ledger invariants, idempotency, budget enforcement, audit.
 
-The dry run reported in Section 8.5 used <span class="code">MockBackend</span> and is reproduced with:
+The dry run reported in Section 8.5 used <span class="code">MockBackend</span>; the Stripe test-mode run used <span class="code">StripeBackend</span> and <span class="code">live_run.py --test-mode</span>. Reproduce with:
 
 <pre class="code">cd experiments/payments
 python3 selftest.py
-python3 agent_loop.py --out ../../results/payments_pilot.jsonl --tasks 6</pre>
+python3 agent_loop.py --out ../../results/payments_pilot.jsonl --tasks 6
+export STRIPE_SECRET_KEY=sk_test_...
+python3 live_run.py --test-mode --tasks 60 --max-spend 100000 \
+    --workers 6 --out ../../results/payments_stripe_60.jsonl
+python3 reconcile.py ../../results/payments_stripe_60.jsonl</pre>
 
 The design document with the full protocol, power calculation, ethics checklist, and live-mode controls is in <span class="code">experiments/payments/DESIGN.md</span>.

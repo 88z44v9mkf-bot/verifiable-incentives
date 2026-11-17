@@ -153,7 +153,7 @@ def format_ref(key: str, e: dict[str, str]) -> str:
     authors = html.escape(format_authors(e.get("author", "")))
     year = html.escape(_plain(e.get("year", "")))
     t = e["type"]
-    bits = [f"{authors}. <i>{title}</i>."]
+    bits = [f"{authors}{'' if authors.endswith('.') else '.'} <i>{title}</i>."]
     if t == "article":
         venue = _plain(e.get("journal", ""))
         if not venue or "arxiv" in venue.lower():

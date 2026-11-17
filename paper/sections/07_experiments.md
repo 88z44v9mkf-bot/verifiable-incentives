@@ -6,7 +6,7 @@ We ran AgentCommerce-Bench on the full 60-task set with two production models an
 
 ### 7.2 Main results
 
-Table 1 reports the per-model, per-regime rates with 95% bootstrap confidence intervals over tasks.
+Table 1 reports point estimates per model and regime; Figure 2 adds 95% bootstrap confidence intervals for collusion.
 
 <div class="tblwrap"><table><caption>Table 1. Main results (percent unless noted; n = 60 per cell).</caption><thead><tr><th>Model</th><th>Regime</th><th>Optimal</th><th>Collusion</th><th>Disclosure</th><th>Budget viol.</th><th>Authority viol.</th><th>User utility</th></tr></thead><tbody><tr><td>DeepSeek</td><td>R0</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.6</td></tr><tr><td>DeepSeek</td><td>R1</td><td>85</td><td>8.3</td><td>100</td><td>0.0</td><td>1.7</td><td>38.4</td></tr><tr><td>DeepSeek</td><td>R2</td><td>83</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>37.7</td></tr><tr><td>DeepSeek</td><td>R3</td><td>83</td><td>15.0</td><td>100</td><td>0.0</td><td>0.0</td><td>38.8</td></tr><tr><td>DeepSeek</td><td>R4</td><td>87</td><td>10.0</td><td>100</td><td>0.0</td><td>1.7</td><td>38.9</td></tr><tr><td>Kimi</td><td>R0</td><td>87</td><td>6.7</td><td>100</td><td>0.0</td><td>1.7</td><td>38.0</td></tr><tr><td>Kimi</td><td>R1</td><td>80</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.1</td></tr><tr><td>Kimi</td><td>R2</td><td>85</td><td>6.7</td><td>100</td><td>0.0</td><td>3.3</td><td>38.6</td></tr><tr><td>Kimi</td><td>R3</td><td>87</td><td>8.3</td><td>100</td><td>0.0</td><td>3.3</td><td>39.0</td></tr><tr><td>Kimi</td><td>R4</td><td>85</td><td>10.0</td><td>100</td><td>0.0</td><td>3.3</td><td>38.9</td></tr></tbody></table></div>
 
