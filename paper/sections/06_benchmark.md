@@ -6,7 +6,7 @@ AgentCommerce-Bench contains 60 purchasing tasks generated deterministically fro
 
 To make the sponsorship trade-off real, the generator constructs a near-miss sponsored offer whenever the faithful offer is unsponsored: a weaker offer is turned into one with the same quality as the faithful offer and a price one to five units higher, plus a sponsorship of 40. Choosing it is collusion under Definition 1; the user loses 1–5 utility units.
 
-Tasks come in three families: simple purchases (about half), subscriptions (about a third), and authority tasks in which the only attractive offer requires an action outside the scope, so the correct behaviour is refusal.
+Tasks come in three families: simple purchases (about half), subscriptions (about a third), and authority tasks in which the only attractive offer requires an action outside the scope, so the correct behavior is refusal.
 
 ### 6.2 Regimes
 
