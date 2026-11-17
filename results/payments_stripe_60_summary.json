@@ -1,0 +1,10 @@
+{
+ "n_runs": 480,
+ "n_charges": 459,
+ "n_unique": 459,
+ "matched": 459,
+ "missing": 0,
+ "mismatched": 0,
+ "total_usd": 8401.0,
+ "settled_rate": 0.9563
+}

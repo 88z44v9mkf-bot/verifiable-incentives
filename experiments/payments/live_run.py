@@ -5,7 +5,7 @@ This file never runs automatically. `--live` additionally requires
 test payment method and moves no real money.
 """
 from __future__ import annotations
-import argparse, os, sys
+import argparse, os, sys, threading
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -20,13 +20,16 @@ class CappedBackend:
         self.inner = inner
         self.max_spend = float(max_spend)
         self.spent = 0.0
+        self._lock = threading.Lock()
 
     def charge(self, amount, currency, description, idempotency_key, merchant):
-        if self.spent + amount > self.max_spend + 1e-9:
-            raise RuntimeError(f"spend cap reached: {self.spent:.2f} + {amount:.2f} > {self.max_spend:.2f}")
+        with self._lock:
+            if self.spent + amount > self.max_spend + 1e-9:
+                raise RuntimeError(f"spend cap reached: {self.spent:.2f} + {amount:.2f} > {self.max_spend:.2f}")
         res = self.inner.charge(amount, currency, description, idempotency_key, merchant)
         if res.ok:
-            self.spent += amount
+            with self._lock:
+                self.spent += amount
         return res
 
 
@@ -38,6 +41,7 @@ def main(argv=None):
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--confirm-live", action="store_true")
     ap.add_argument("--max-spend", type=float, default=200.0)
+    ap.add_argument("--workers", type=int, default=1)
     ap.add_argument("--payment-method", default="pm_card_visa")
     args = ap.parse_args(argv)
     if not args.test_mode and not args.live:
@@ -51,7 +55,7 @@ def main(argv=None):
                           payment_method=args.payment_method)
     agent_loop.BACKEND = CappedBackend(inner, args.max_spend)
     return agent_loop.main(["--out", args.out, "--tasks", str(args.tasks),
-                            "--workers", "1"])
+                            "--workers", str(args.workers)])
 
 
 if __name__ == "__main__":

@@ -2,6 +2,7 @@
 from __future__ import annotations
 import json, os, sys, urllib.request
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -29,18 +30,22 @@ def main(path):
     unique = sorted(set(ids))
     matched, missing, mismatched = 0, 0, 0
     total = 0.0
-    for cid in unique:
+    def check(cid):
         try:
-            pi = fetch(cid, key)
+            return cid, fetch(cid, key), None
         except Exception as exc:
-            missing += 1; errors.append(f"{cid}: {exc}"); continue
-        expected = int(round(amounts[cid] * 100))
-        if pi.get("amount") == expected and pi.get("status") in ("succeeded", "requires_capture"):
-            matched += 1
-            total += pi.get("amount", 0) / 100
-        else:
-            mismatched += 1
-            errors.append(f"{cid}: expected {expected}, got {pi.get('amount')} status {pi.get('status')}")
+            return cid, None, exc
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        for cid, pi, exc in pool.map(check, unique):
+            if exc is not None:
+                missing += 1; errors.append(f"{cid}: {exc}"); continue
+            expected = int(round(amounts[cid] * 100))
+            if pi.get("amount") == expected and pi.get("status") in ("succeeded", "requires_capture"):
+                matched += 1
+                total += pi.get("amount", 0) / 100
+            else:
+                mismatched += 1
+                errors.append(f"{cid}: expected {expected}, got {pi.get('amount')} status {pi.get('status')}")
     out = {"n_records": len(rows), "n_charges": len(ids), "n_unique": len(unique),
            "matched": matched, "missing": missing, "mismatched": mismatched,
            "total_usd": round(total, 2), "errors": errors[:10]}

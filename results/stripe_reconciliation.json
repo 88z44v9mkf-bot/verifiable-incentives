@@ -1,10 +1,10 @@
 {
- "n_records": 48,
- "n_charges": 45,
- "n_unique": 45,
- "matched": 45,
+ "n_records": 480,
+ "n_charges": 459,
+ "n_unique": 459,
+ "matched": 459,
  "missing": 0,
  "mismatched": 0,
- "total_usd": 821.5,
+ "total_usd": 8401.0,
  "errors": []
 }
